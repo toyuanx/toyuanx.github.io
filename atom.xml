@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-02T05:40:05.296Z</updated>
+  <updated>2016-12-02T05:57:20.561Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/12/02/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
     <id>http://yoursite.com/2016/12/02/Redis应用场景/</id>
     <published>2016-12-02T01:40:07.000Z</published>
-    <updated>2016-12-02T05:40:05.296Z</updated>
+    <updated>2016-12-02T05:57:20.561Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&ensp;&ensp;&ensp;&ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。<br>&ensp;&ensp;&ensp;&ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。<br><a id="more"></a></p>
 <h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>&ensp;&ensp;&ensp;&ensp;使用key-value储存，一个开源(BSD许可),内存存储的数据结构服务器,可用作数据库,高速缓存和消息队列代理。</p>
@@ -80,26 +80,26 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
+    <title>Hello Hexo</title>
     <link href="http://yoursite.com/2016/11/29/hello-world/"/>
     <id>http://yoursite.com/2016/11/29/hello-world/</id>
     <published>2016-11-29T06:34:33.278Z</published>
-    <updated>2016-11-30T07:52:22.692Z</updated>
+    <updated>2016-12-02T05:56:12.993Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<p>折腾了这么久终于找到一个喜欢的博客主题了，那就是Hexo-NexT,Hexo基于node.js,之前自己也试着用node仿了一个简书的博客主题，支持多人登录。<br>完善之后再放出来遛遛了。废话不多说，多看书，写好文。<br><a id="more"></a></p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server p -5000</div></pre></td></tr></table></figure>
+<p>默认端口为4000<br>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
+      &lt;p&gt;折腾了这么久终于找到一个喜欢的博客主题了，那就是Hexo-NexT,Hexo基于node.js,之前自己也试着用node仿了一个简书的博客主题，支持多人登录。&lt;br&gt;完善之后再放出来遛遛了。废话不多说，多看书，写好文。&lt;br&gt;
     
     </summary>
     
