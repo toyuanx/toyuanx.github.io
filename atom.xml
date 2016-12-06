@@ -36,9 +36,9 @@
       <category term="版本管理" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
     
     
-      <category term="持续更新" scheme="http://yoursite.com/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
-    
       <category term="git &amp; github" scheme="http://yoursite.com/tags/git-github/"/>
+    
+      <category term="持续更新" scheme="http://yoursite.com/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
     
   </entry>
   
