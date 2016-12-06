@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-02T05:57:20.561Z</updated>
+  <updated>2016-12-06T09:15:38.553Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git与github二三事</title>
+    <link href="http://yoursite.com/2016/12/05/git%E4%B8%8Egithub%E4%BA%8C%E4%B8%89%E4%BA%8B/"/>
+    <id>http://yoursite.com/2016/12/05/git与github二三事/</id>
+    <published>2016-12-05T03:39:35.000Z</published>
+    <updated>2016-12-06T09:15:38.553Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&ensp;&ensp;&ensp;&ensp;git是一张弓，github是靶子，你的源代码是箭（来自<a href="https://www.zhihu.com/people/jacobpeng/answers" target="_blank" rel="external">Jacob Peng</a>）。程序员对版本管理都不陌生，它可以用来记录项目的修改，项目成员之间的沟通和交流。<br>&ensp;&ensp;&ensp;&ensp;github是一个基于git的开源项目托管平台,它提供了web界面,你可以在上面创建资源仓库来存放你的项目，并用git在本地进行远程管理。<br><a id="more"></a></p>
+<h2 id="常用的git操作"><a href="#常用的git操作" class="headerlink" title="常用的git操作"></a>常用的git操作</h2><h3 id="git连接github"><a href="#git连接github" class="headerlink" title="git连接github"></a>git连接github</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;git是一张弓，github是靶子，你的源代码是箭（来自&lt;a href=&quot;https://www.zhihu.com/people/jacobpeng/answers&quot;&gt;Jacob Peng&lt;/a&gt;）。程序员对版本管理都不陌生，它可以用来记录项目的修改，项目成员之间的沟通和交流。&lt;br&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;github是一个基于git的开源项目托管平台,它提供了web界面,你可以在上面创建资源仓库来存放你的项目，并用git在本地进行远程管理。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="项目开发" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="版本管理" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="持续更新" scheme="http://yoursite.com/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
+      <category term="git &amp; github" scheme="http://yoursite.com/tags/git-github/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis应用场景</title>
@@ -84,7 +111,7 @@
     <link href="http://yoursite.com/2016/11/29/hello-world/"/>
     <id>http://yoursite.com/2016/11/29/hello-world/</id>
     <published>2016-11-29T06:34:33.278Z</published>
-    <updated>2016-12-02T05:56:12.993Z</updated>
+    <updated>2016-12-06T09:15:59.252Z</updated>
     
     <content type="html"><![CDATA[<p>折腾了这么久终于找到一个喜欢的博客主题了，那就是Hexo-NexT,Hexo基于node.js,之前自己也试着用node仿了一个简书的博客主题，支持多人登录。<br>完善之后再放出来遛遛了。废话不多说，多看书，写好文。<br><a id="more"></a></p>
 <h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
@@ -106,7 +133,7 @@
       <category term="项目开发" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Hello World" scheme="http://yoursite.com/tags/Hello-World/"/>
+      <category term="Hello Hexo" scheme="http://yoursite.com/tags/Hello-Hexo/"/>
     
   </entry>
   
