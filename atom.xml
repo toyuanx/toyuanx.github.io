@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-08T06:41:04.097Z</updated>
+  <updated>2016-12-09T06:08:19.181Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,19 +16,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ALTER TABLE, 你真的学好了吗？</title>
+    <link href="http://yoursite.com/2016/12/09/ALTER%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2016/12/09/ALTER命令/</id>
+    <published>2016-12-09T02:34:45.000Z</published>
+    <updated>2016-12-09T06:08:19.181Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&ensp;&ensp;&ensp;&ensp;<code>ALTER TABLE</code>命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> titles <span class="keyword">CHANGE</span> title title <span class="built_in">VARCHAR</span>(<span class="number">150</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>上述命令把titles数据表里的title数据列的最大字符个数增加到了150个字符。其中第一个title是数据列的当前名字，第二个title是数据列的新名字（但没有改变）。接下来就让我们看看还有哪些<code>ALTER TABLE</code>命令吧。<br><!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --><br><!-- 其中 class="full-image" 是必须的 --><br><!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
+<img src="/image-url" class="full-image" />
+</a>--></p>
+<h3 id="增加一个数据列"><a href="#增加一个数据列" class="headerlink" title="增加一个数据列"></a>增加一个数据列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> newcloname coltype coloptions</div></pre></td></tr></table></figure>
+<h3 id="删除一个数据列"><a href="#删除一个数据列" class="headerlink" title="删除一个数据列"></a>删除一个数据列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> cloname</div></pre></td></tr></table></figure>
+<h3 id="修改一个数据列"><a href="#修改一个数据列" class="headerlink" title="修改一个数据列"></a>修改一个数据列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">CHANGE</span>  oldcloname newcloname coltype coloptions</div></pre></td></tr></table></figure>
+<h3 id="增加一个索引"><a href="#增加一个索引" class="headerlink" title="增加一个索引"></a>增加一个索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span> (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> <span class="keyword">INDEX</span> [indexname] (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> [indexname] (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> FULLTEXT [indexname] (indexcols)</div></pre></td></tr></table></figure>
+<h3 id="增加一个外键约束条件"><a href="#增加一个外键约束条件" class="headerlink" title="增加一个外键约束条件"></a>增加一个外键约束条件</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> FOREIGN <span class="keyword">KEY</span> [indexname] (column1) <span class="keyword">REFERENCES</span> table2(clumn2)</div></pre></td></tr></table></figure>
+<h3 id="删除一个索引"><a href="#删除一个索引" class="headerlink" title="删除一个索引"></a>删除一个索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> <span class="keyword">INDEX</span> indexname</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span>  FOREIGN <span class="keyword">KEY</span> indexname</div></pre></td></tr></table></figure>
+<h3 id="改变全体文本数据列上的字符集"><a href="#改变全体文本数据列上的字符集" class="headerlink" title="改变全体文本数据列上的字符集"></a>改变全体文本数据列上的字符集</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> chartsetname</div></pre></td></tr></table></figure>
+<h3 id="改变数据表的类型（MyISAM、InnoDB）"><a href="#改变数据表的类型（MyISAM、InnoDB）" class="headerlink" title="改变数据表的类型（MyISAM、InnoDB）"></a>改变数据表的类型（MyISAM、InnoDB）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename ENGIN typename</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&lt;code&gt;ALTER TABLE&lt;/code&gt;命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：&lt;br&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; titles &lt;span class=&quot;keyword&quot;&gt;CHANGE&lt;/span&gt; title title &lt;span class=&quot;built_in&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;150&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目开发" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="Mysql" scheme="http://yoursite.com/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>git与github二三事</title>
     <link href="http://yoursite.com/2016/12/05/git%E4%B8%8Egithub%E4%BA%8C%E4%B8%89%E4%BA%8B/"/>
     <id>http://yoursite.com/2016/12/05/git与github二三事/</id>
     <published>2016-12-05T03:39:35.000Z</published>
-    <updated>2016-12-08T06:41:04.097Z</updated>
+    <updated>2016-12-09T08:12:16.737Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&ensp;&ensp;&ensp;&ensp;git是一张弓，github是靶子，你的源代码是箭（来自<a href="https://www.zhihu.com/people/jacobpeng/answers" target="_blank" rel="external">Jacob Peng</a>）。程序员对版本管理都不陌生，它可以用来记录项目的修改，项目成员之间的沟通和交流。<br>&ensp;&ensp;&ensp;&ensp;github是一个基于git的开源项目托管平台,它提供了web界面,你可以在上面创建资源仓库来存放你的项目，并用git在本地进行远程管理。<br><a id="more"></a></p>
-<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
-<!-- 其中 class="full-image" 是必须的 -->
-<p><a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank"><br><img src="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" class="full-image"><br></a></p>
-<h2 id="常用的git操作"><a href="#常用的git操作" class="headerlink" title="常用的git操作"></a>常用的git操作</h2><h3 id="git连接github"><a href="#git连接github" class="headerlink" title="git连接github"></a>git连接github</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br><!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --><br><!-- 其中 class="full-image" 是必须的 --><br><a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank"><br><img src="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" class="full-image"><br></a></p>
+<p>=======</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>6b7ef4e03e9f174b1458454d69a71ae5bca0034a</p>
+<h2 id="常用的git操作"><a href="#常用的git操作" class="headerlink" title="常用的git操作"></a>常用的git操作</h2></blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="git连接github"><a href="#git连接github" class="headerlink" title="git连接github"></a>git连接github</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div></pre></td></tr></table></figure>
 <h3 id="本地克隆repository"><a href="#本地克隆repository" class="headerlink" title="本地克隆repository"></a>本地克隆repository</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> [目标仓库链接地址]</div></pre></td></tr></table></figure>
-<h3 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git add [.或file]</div><div class="line">$ git commit -m <span class="string">"提交信息"</span></div><div class="line">$ git pull [目标仓库链接地址]</div><div class="line">$ git push [目标仓库链接地址]</div></pre></td></tr></table></figure>]]></content>
+<h3 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git add [.或file]</div><div class="line">$ git commit -m <span class="string">"提交信息"</span></div><div class="line">$ git pull [目标仓库链接地址]</div><div class="line">$ git push [目标仓库链接地址]</div><div class="line">=======</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 6b7ef4e03e9f174b1458454d69a71ae5bca0034a</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Redis," />
+  <meta name="keywords" content="Mysql," />
 
 
 
@@ -86,18 +86,16 @@
 
 
 
-<meta name="description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
+<meta name="description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;ALTER TABLE命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：1ALTER TABLE titles CHANGE title title VARCHAR(150) NOT NULL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis应用场景">
-<meta property="og:url" content="http://yoursite.com/2016/12/02/Redis应用场景/index.html">
+<meta property="og:title" content="ALTER TABLE, 你真的学好了吗？">
+<meta property="og:url" content="http://yoursite.com/2016/12/09/ALTER命令/index.html">
 <meta property="og:site_name" content="原子酱">
-<meta property="og:description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
-<meta property="og:image" content="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg">
-<meta property="og:updated_time" content="2016-12-02T05:57:20.561Z">
+<meta property="og:description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;ALTER TABLE命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：1ALTER TABLE titles CHANGE title title VARCHAR(150) NOT NULL">
+<meta property="og:updated_time" content="2016-12-09T06:08:19.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis应用场景">
-<meta name="twitter:description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
-<meta name="twitter:image" content="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg">
+<meta name="twitter:title" content="ALTER TABLE, 你真的学好了吗？">
+<meta name="twitter:description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;ALTER TABLE命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：1ALTER TABLE titles CHANGE title title VARCHAR(150) NOT NULL">
 
 
 
@@ -125,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/02/Redis应用场景/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/09/ALTER命令/"/>
 
 
 
 
 
-  <title> Redis应用场景 | 原子酱 </title>
+  <title> ALTER TABLE, 你真的学好了吗？ | 原子酱 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/02/Redis应用场景/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/09/ALTER命令/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="原子酱">
@@ -306,7 +304,7 @@
             
             
               
-                Redis应用场景
+                ALTER TABLE, 你真的学好了吗？
               
             
           </h1>
@@ -319,8 +317,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T09:40:07+08:00">
-                2016-12-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-09T10:34:45+08:00">
+                2016-12-09
               </time>
             
 
@@ -349,8 +347,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目开发/缓存机制/" itemprop="url" rel="index">
-                    <span itemprop="name">缓存机制</span>
+                  <a href="/categories/项目开发/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -364,8 +362,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/02/Redis应用场景/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/Redis应用场景/" itemprop="commentCount"></span>
+                <a href="/2016/12/09/ALTER命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/ALTER命令/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -375,7 +373,7 @@
 
           
           
-             <span id="/2016/12/02/Redis应用场景/" class="leancloud_visitors" data-flag-title="Redis应用场景">
+             <span id="/2016/12/09/ALTER命令/" class="leancloud_visitors" data-flag-title="ALTER TABLE, 你真的学好了吗？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -398,65 +396,21 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg" rel="gallery_ciwhkit2400023sptxpkwruuz"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&ensp;&ensp;&ensp;&ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。<br>&ensp;&ensp;&ensp;&ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。<br><a id="more"></a></p>
-<h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>&ensp;&ensp;&ensp;&ensp;使用key-value储存，一个开源(BSD许可),内存存储的数据结构服务器,可用作数据库,高速缓存和消息队列代理。</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
-<li>字符串（string）</li>
-<li>哈希（hash）</li>
-<li>列表（list）</li>
-<li>集合（sort）</li>
-<li>有序集合（sort set）</li>
-</ul>
-<h2 id="学习Tips"><a href="#学习Tips" class="headerlink" title="学习Tips"></a>学习Tips</h2><p><a href="http://naotu.baidu.com/file/3711c01eaee4359f57dc9c031012f30e?token=9b060c8bb77dd860" target="_blank">Redis学习网</a><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/03/12/2348935.html" target="_blank" rel="external">Stephen Liu-Redis学习手册</a></p>
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><blockquote>
-<p>Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。本文列出了11个这样的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。</p>
-</blockquote>
-<ol>
-<li><p>在主页中显示最新的项目列表(LPUSH, LTRIM)</p>
-</li>
-<li><p>删除和过滤(LREM)</p>
-</li>
-<li><p>排行榜及相关问题(ZADD,ZREVRANGE, ZRANK)</p>
-</li>
-<li><p>按照用户投票和时间排序(LPUSH, LTRIM, ZADD)</p>
-</li>
-<li><p>过期项目处理(ZRANGE…WITHSCORES)</p>
-</li>
-<li><p>计数(INCRBY, GETSET)</p>
-</li>
-<li><p>特定时间内的特定项目(SADD)</p>
-</li>
-<li><p>实时分析正在发生的情况，用于数据统计与防止垃圾邮件等</p>
-</li>
-<li><p>Pub/Sub</p>
-</li>
-<li><p>队列</p>
-</li>
-<li><p>缓存</p>
-</li>
-</ol>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Redis命令，简洁但功能强大，组合使用效果更佳，这点本人在项目中深有体会。</p>
-<p>目前使用的较多的是字符串数据类型的一些命令，我们常在存取比大于7:3时使用Redis减少数据库压力。</p>
-<p>比如访问量较大的首页区块，何时写Redis也值得好好思考。</p>
-
+        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&ensp;&ensp;&ensp;&ensp;<code>ALTER TABLE</code>命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> titles <span class="keyword">CHANGE</span> title title <span class="built_in">VARCHAR</span>(<span class="number">150</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>上述命令把titles数据表里的title数据列的最大字符个数增加到了150个字符。其中第一个title是数据列的当前名字，第二个title是数据列的新名字（但没有改变）。接下来就让我们看看还有哪些<code>ALTER TABLE</code>命令吧。<br><!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --><br><!-- 其中 class="full-image" 是必须的 --><br><!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
+<img src="/image-url" class="full-image" />
+</a>--></p>
+<h3 id="增加一个数据列"><a href="#增加一个数据列" class="headerlink" title="增加一个数据列"></a>增加一个数据列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> newcloname coltype coloptions</div></pre></td></tr></table></figure>
+<h3 id="删除一个数据列"><a href="#删除一个数据列" class="headerlink" title="删除一个数据列"></a>删除一个数据列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> cloname</div></pre></td></tr></table></figure>
+<h3 id="修改一个数据列"><a href="#修改一个数据列" class="headerlink" title="修改一个数据列"></a>修改一个数据列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">CHANGE</span>  oldcloname newcloname coltype coloptions</div></pre></td></tr></table></figure>
+<h3 id="增加一个索引"><a href="#增加一个索引" class="headerlink" title="增加一个索引"></a>增加一个索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span> (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> <span class="keyword">INDEX</span> [indexname] (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> [indexname] (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> FULLTEXT [indexname] (indexcols)</div></pre></td></tr></table></figure>
+<h3 id="增加一个外键约束条件"><a href="#增加一个外键约束条件" class="headerlink" title="增加一个外键约束条件"></a>增加一个外键约束条件</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> FOREIGN <span class="keyword">KEY</span> [indexname] (column1) <span class="keyword">REFERENCES</span> table2(clumn2)</div></pre></td></tr></table></figure>
+<h3 id="删除一个索引"><a href="#删除一个索引" class="headerlink" title="删除一个索引"></a>删除一个索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> <span class="keyword">INDEX</span> indexname</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span>  FOREIGN <span class="keyword">KEY</span> indexname</div></pre></td></tr></table></figure>
+<h3 id="改变全体文本数据列上的字符集"><a href="#改变全体文本数据列上的字符集" class="headerlink" title="改变全体文本数据列上的字符集"></a>改变全体文本数据列上的字符集</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> chartsetname</div></pre></td></tr></table></figure>
+<h3 id="改变数据表的类型（MyISAM、InnoDB）"><a href="#改变数据表的类型（MyISAM、InnoDB）" class="headerlink" title="改变数据表的类型（MyISAM、InnoDB）"></a>改变数据表的类型（MyISAM、InnoDB）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename ENGIN typename</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -479,7 +433,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Redis/" rel="tag"># Redis</a>
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
           
         </div>
       
@@ -488,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/29/hello-world/" rel="next" title="Hello Hexo">
-                <i class="fa fa-chevron-left"></i> Hello Hexo
+              <a href="/2016/12/05/git与github二三事/" rel="next" title="git与github二三事">
+                <i class="fa fa-chevron-left"></i> git与github二三事
               </a>
             
           </div>
@@ -497,10 +451,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/05/git与github二三事/" rel="prev" title="git与github二三事">
-                git与github二三事 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -526,8 +476,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/02/Redis应用场景/"
-           data-title="Redis应用场景" data-url="http://yoursite.com/2016/12/02/Redis应用场景/">
+      <div class="ds-thread" data-thread-key="2016/12/09/ALTER命令/"
+           data-title="ALTER TABLE, 你真的学好了吗？" data-url="http://yoursite.com/2016/12/09/ALTER命令/">
       </div>
     
   </div>
@@ -651,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis简介"><span class="nav-number">2.</span> <span class="nav-text">Redis简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习Tips"><span class="nav-number">4.</span> <span class="nav-text">学习Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">5.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个数据列"><span class="nav-number">1.1.</span> <span class="nav-text">增加一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除一个数据列"><span class="nav-number">1.2.</span> <span class="nav-text">删除一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改一个数据列"><span class="nav-number">1.3.</span> <span class="nav-text">修改一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个索引"><span class="nav-number">1.4.</span> <span class="nav-text">增加一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个外键约束条件"><span class="nav-number">1.5.</span> <span class="nav-text">增加一个外键约束条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除一个索引"><span class="nav-number">1.6.</span> <span class="nav-text">删除一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变全体文本数据列上的字符集"><span class="nav-number">1.7.</span> <span class="nav-text">改变全体文本数据列上的字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变数据表的类型（MyISAM、InnoDB）"><span class="nav-number">1.8.</span> <span class="nav-text">改变数据表的类型（MyISAM、InnoDB）</span></a></li></ol></li></ol></div>
             
 
           </div>
