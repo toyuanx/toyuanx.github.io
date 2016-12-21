@@ -86,17 +86,23 @@
 
 
 
-<meta name="description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
+<meta name="description" content="¶摘要
+    Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。
+    本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis应用场景">
 <meta property="og:url" content="http://yoursite.com/2016/12/02/Redis应用场景/index.html">
 <meta property="og:site_name" content="原子酱">
-<meta property="og:description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
+<meta property="og:description" content="¶摘要
+    Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。
+    本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
 <meta property="og:image" content="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg">
 <meta property="og:updated_time" content="2016-12-02T05:57:20.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis应用场景">
-<meta name="twitter:description" content="摘要&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
+<meta name="twitter:description" content="¶摘要
+    Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。
+    本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。">
 <meta name="twitter:image" content="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg">
 
 
@@ -403,7 +409,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg" rel="gallery_ciwhkit2400023sptxpkwruuz"
+                 href="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg" rel="gallery_ciwys97140008dkptpfu9e8m8"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://s2.51cto.com/wyfs02/M01/3D/E7/wKioL1PF3hmz7ka2AAAlJgtIoAM014.jpg" itemprop="contentUrl"/>
               </a>
@@ -416,44 +422,64 @@
       
 
       
-        <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&ensp;&ensp;&ensp;&ensp;Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。<br>&ensp;&ensp;&ensp;&ensp;本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。<br><a id="more"></a></p>
-<h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>&ensp;&ensp;&ensp;&ensp;使用key-value储存，一个开源(BSD许可),内存存储的数据结构服务器,可用作数据库,高速缓存和消息队列代理。</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+        <h2 id="摘要"><a class="header-anchor" href="#摘要">¶</a>摘要</h2>
+<p>    Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。<br>
+    本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。</p>
+<a id="more"></a>
+<h2 id="redis简介"><a class="header-anchor" href="#redis简介">¶</a>Redis简介</h2>
+<p>    使用key-value储存，一个开源(BSD许可),内存存储的数据结构服务器,可用作数据库,高速缓存和消息队列代理。</p>
+<h2 id="数据类型"><a class="header-anchor" href="#数据类型">¶</a>数据类型</h2>
+<ul>
 <li>字符串（string）</li>
 <li>哈希（hash）</li>
 <li>列表（list）</li>
 <li>集合（sort）</li>
 <li>有序集合（sort set）</li>
 </ul>
-<h2 id="学习Tips"><a href="#学习Tips" class="headerlink" title="学习Tips"></a>学习Tips</h2><p><a href="http://naotu.baidu.com/file/3711c01eaee4359f57dc9c031012f30e?token=9b060c8bb77dd860" target="_blank">Redis学习网</a><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/03/12/2348935.html" target="_blank" rel="external">Stephen Liu-Redis学习手册</a></p>
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><blockquote>
+<h2 id="学习tips"><a class="header-anchor" href="#学习tips">¶</a>学习Tips</h2>
+<p><a href="http://naotu.baidu.com/file/3711c01eaee4359f57dc9c031012f30e?token=9b060c8bb77dd860" target="_blank">Redis学习网</a><br>
+<a href="http://www.cnblogs.com/stephen-liu74/archive/2012/03/12/2348935.html" target="_blank" rel="external">Stephen Liu-Redis学习手册</a></p>
+<h2 id="应用场景"><a class="header-anchor" href="#应用场景">¶</a>应用场景</h2>
+<blockquote>
 <p>Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。本文列出了11个这样的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。</p>
 </blockquote>
 <ol>
-<li><p>在主页中显示最新的项目列表(LPUSH, LTRIM)</p>
+<li>
+<p>在主页中显示最新的项目列表(LPUSH, LTRIM)</p>
 </li>
-<li><p>删除和过滤(LREM)</p>
+<li>
+<p>删除和过滤(LREM)</p>
 </li>
-<li><p>排行榜及相关问题(ZADD,ZREVRANGE, ZRANK)</p>
+<li>
+<p>排行榜及相关问题(ZADD,ZREVRANGE, ZRANK)</p>
 </li>
-<li><p>按照用户投票和时间排序(LPUSH, LTRIM, ZADD)</p>
+<li>
+<p>按照用户投票和时间排序(LPUSH, LTRIM, ZADD)</p>
 </li>
-<li><p>过期项目处理(ZRANGE…WITHSCORES)</p>
+<li>
+<p>过期项目处理(ZRANGE…WITHSCORES)</p>
 </li>
-<li><p>计数(INCRBY, GETSET)</p>
+<li>
+<p>计数(INCRBY, GETSET)</p>
 </li>
-<li><p>特定时间内的特定项目(SADD)</p>
+<li>
+<p>特定时间内的特定项目(SADD)</p>
 </li>
-<li><p>实时分析正在发生的情况，用于数据统计与防止垃圾邮件等</p>
+<li>
+<p>实时分析正在发生的情况，用于数据统计与防止垃圾邮件等</p>
 </li>
-<li><p>Pub/Sub</p>
+<li>
+<p>Pub/Sub</p>
 </li>
-<li><p>队列</p>
+<li>
+<p>队列</p>
 </li>
-<li><p>缓存</p>
+<li>
+<p>缓存</p>
 </li>
 </ol>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Redis命令，简洁但功能强大，组合使用效果更佳，这点本人在项目中深有体会。</p>
+<h2 id="结语"><a class="header-anchor" href="#结语">¶</a>结语</h2>
+<p>Redis命令，简洁但功能强大，组合使用效果更佳，这点本人在项目中深有体会。</p>
 <p>目前使用的较多的是字符串数据类型的一些命令，我们常在存取比大于7:3时使用Redis减少数据库压力。</p>
 <p>比如访问量较大的首页区块，何时写Redis也值得好好思考。</p>
 
@@ -572,7 +598,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -580,7 +606,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -589,7 +615,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -651,7 +677,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis简介"><span class="nav-number">2.</span> <span class="nav-text">Redis简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习Tips"><span class="nav-number">4.</span> <span class="nav-text">学习Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">5.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">¶摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis简介"><span class="nav-number">2.</span> <span class="nav-text">¶Redis简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">¶数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习tips"><span class="nav-number">4.</span> <span class="nav-text">¶学习Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">5.</span> <span class="nav-text">¶应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">¶结语</span></a></li></ol></div>
             
 
           </div>
