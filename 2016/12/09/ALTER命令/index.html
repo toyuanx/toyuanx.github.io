@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="¶摘要
+<meta name="description" content="摘要
     ALTER TABLE命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：
 1ALTER TABLE titles CHANGE title title VARCHAR(150) NOT NULL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ALTER TABLE, 你真的学好了吗？">
 <meta property="og:url" content="http://yoursite.com/2016/12/09/ALTER命令/index.html">
 <meta property="og:site_name" content="原子酱">
-<meta property="og:description" content="¶摘要
+<meta property="og:description" content="摘要
     ALTER TABLE命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：
 1ALTER TABLE titles CHANGE title title VARCHAR(150) NOT NULL">
 <meta property="og:updated_time" content="2016-12-09T06:08:19.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ALTER TABLE, 你真的学好了吗？">
-<meta name="twitter:description" content="¶摘要
+<meta name="twitter:description" content="摘要
     ALTER TABLE命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：
 1ALTER TABLE titles CHANGE title title VARCHAR(150) NOT NULL">
 
@@ -404,7 +404,7 @@
       
 
       
-        <h2 id="摘要"><a class="header-anchor" href="#摘要">¶</a>摘要</h2>
+        <h2 id="摘要">摘要</h2>
 <p>    <code>ALTER TABLE</code>命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> titles <span class="keyword">CHANGE</span> title title <span class="built_in">VARCHAR</span>(<span class="number">150</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -414,21 +414,21 @@
 <!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
 <img src="/image-url" class="full-image" />
 </a>-->
-<h3 id="增加一个数据列"><a class="header-anchor" href="#增加一个数据列">¶</a>增加一个数据列</h3>
+<h3 id="增加一个数据列">增加一个数据列</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> newcloname coltype coloptions</div></pre></td></tr></table></figure>
-<h3 id="删除一个数据列"><a class="header-anchor" href="#删除一个数据列">¶</a>删除一个数据列</h3>
+<h3 id="删除一个数据列">删除一个数据列</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> cloname</div></pre></td></tr></table></figure>
-<h3 id="修改一个数据列"><a class="header-anchor" href="#修改一个数据列">¶</a>修改一个数据列</h3>
+<h3 id="修改一个数据列">修改一个数据列</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">CHANGE</span>  oldcloname newcloname coltype coloptions</div></pre></td></tr></table></figure>
-<h3 id="增加一个索引"><a class="header-anchor" href="#增加一个索引">¶</a>增加一个索引</h3>
+<h3 id="增加一个索引">增加一个索引</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span> (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> <span class="keyword">INDEX</span> [indexname] (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> [indexname] (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> FULLTEXT [indexname] (indexcols)</div></pre></td></tr></table></figure>
-<h3 id="增加一个外键约束条件"><a class="header-anchor" href="#增加一个外键约束条件">¶</a>增加一个外键约束条件</h3>
+<h3 id="增加一个外键约束条件">增加一个外键约束条件</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> FOREIGN <span class="keyword">KEY</span> [indexname] (column1) <span class="keyword">REFERENCES</span> table2(clumn2)</div></pre></td></tr></table></figure>
-<h3 id="删除一个索引"><a class="header-anchor" href="#删除一个索引">¶</a>删除一个索引</h3>
+<h3 id="删除一个索引">删除一个索引</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> <span class="keyword">INDEX</span> indexname</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span>  FOREIGN <span class="keyword">KEY</span> indexname</div></pre></td></tr></table></figure>
-<h3 id="改变全体文本数据列上的字符集"><a class="header-anchor" href="#改变全体文本数据列上的字符集">¶</a>改变全体文本数据列上的字符集</h3>
+<h3 id="改变全体文本数据列上的字符集">改变全体文本数据列上的字符集</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> chartsetname</div></pre></td></tr></table></figure>
-<h3 id="改变数据表的类型-myisam-innodb"><a class="header-anchor" href="#改变数据表的类型-myisam-innodb">¶</a>改变数据表的类型（MyISAM、InnoDB）</h3>
+<h3 id="改变数据表的类型-myisam-innodb">改变数据表的类型（MyISAM、InnoDB）</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename ENGIN typename</div></pre></td></tr></table></figure>
       
     </div>
@@ -624,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">¶摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个数据列"><span class="nav-number">1.1.</span> <span class="nav-text">¶增加一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除一个数据列"><span class="nav-number">1.2.</span> <span class="nav-text">¶删除一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改一个数据列"><span class="nav-number">1.3.</span> <span class="nav-text">¶修改一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个索引"><span class="nav-number">1.4.</span> <span class="nav-text">¶增加一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个外键约束条件"><span class="nav-number">1.5.</span> <span class="nav-text">¶增加一个外键约束条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除一个索引"><span class="nav-number">1.6.</span> <span class="nav-text">¶删除一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变全体文本数据列上的字符集"><span class="nav-number">1.7.</span> <span class="nav-text">¶改变全体文本数据列上的字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变数据表的类型-myisam-innodb"><span class="nav-number">1.8.</span> <span class="nav-text">¶改变数据表的类型（MyISAM、InnoDB）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个数据列"><span class="nav-number">1.1.</span> <span class="nav-text">增加一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除一个数据列"><span class="nav-number">1.2.</span> <span class="nav-text">删除一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改一个数据列"><span class="nav-number">1.3.</span> <span class="nav-text">修改一个数据列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个索引"><span class="nav-number">1.4.</span> <span class="nav-text">增加一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加一个外键约束条件"><span class="nav-number">1.5.</span> <span class="nav-text">增加一个外键约束条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除一个索引"><span class="nav-number">1.6.</span> <span class="nav-text">删除一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变全体文本数据列上的字符集"><span class="nav-number">1.7.</span> <span class="nav-text">改变全体文本数据列上的字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变数据表的类型-myisam-innodb"><span class="nav-number">1.8.</span> <span class="nav-text">改变数据表的类型（MyISAM、InnoDB）</span></a></li></ol></li></ol></div>
             
 
           </div>

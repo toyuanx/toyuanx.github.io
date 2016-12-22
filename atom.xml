@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-21T10:14:19.466Z</updated>
+  <updated>2016-12-22T01:17:40.296Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,19 +20,19 @@
     <link href="http://yoursite.com/2016/12/20/hexo-bugs/"/>
     <id>http://yoursite.com/2016/12/20/hexo-bugs/</id>
     <published>2016-12-20T08:11:11.000Z</published>
-    <updated>2016-12-21T10:14:19.466Z</updated>
+    <updated>2016-12-22T01:17:40.296Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="摘要"><a class="header-anchor" href="#摘要">¶</a>摘要</h2>
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    如题，在我们学习一门全新的语言或者启动一个新项目时，大部分都需要对环境或者系统做一些相关的配置，对于新手来说，配置出错基本算是家常便饭了。<br>
     基础没打好，谈什么建高楼大厦呢？抛砖引玉，下面看看在使用<strong>hexo搭建博客</strong>的过程中遇到的问题吧。</p>
 <a id="more"></a>
-<h2 id="1-localhost-4000访问无响应"><a class="header-anchor" href="#1-localhost-4000访问无响应">¶</a>1. localhost:4000访问无响应</h2>
-<h4 id="错误描述"><a class="header-anchor" href="#错误描述">¶</a>错误描述</h4>
+<h2 id="1-localhost-4000访问无响应">1. localhost:4000访问无响应</h2>
+<h4 id="错误描述">错误描述</h4>
 <ul>
 <li>终端无报错信息，显示<code>INFO Hexo is running at http://0.0.0.0:4000/</code></li>
 <li>浏览器输入localhost:4000打开标签页一直在加载</li>
 </ul>
-<h4 id="解决方案"><a class="header-anchor" href="#解决方案">¶</a>解决方案</h4>
+<h4 id="解决方案">解决方案</h4>
 <p>4000是hexo服务器的默认监听端口，可以通过以下命令查看端口占用情况：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">netstat -ano</div><div class="line">//进程筛选</div><div class="line">netstat -ano | findstr <span class="string">"4000"</span></div></pre></td></tr></table></figure>
 <p>解决端口占用问题我们重新设置一个端口port即可。（推荐文档：<a href="https://hexo.io/zh-cn/docs/server.html#hexo-server" target="_blank" rel="external">Hexo服务器</a>）</p>
@@ -40,30 +40,26 @@
 <p>Hexo可以监视文件变动并自动更新，这意味着你更改文件后无需重启服务器就能在浏览器中看到修改结果。<br>
 当看到如下结果时，输入提示地址即可以访问你的页面😃。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo server -p 5000</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:5000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
-<h2 id="2-bash-hexo-command-not-found"><a class="header-anchor" href="#2-bash-hexo-command-not-found">¶</a>2. bash:hexo:command not found</h2>
-<h4 id="错误描述-v2"><a class="header-anchor" href="#错误描述-v2">¶</a>错误描述</h4>
+<h2 id="2-bash-hexo-command-not-found">2. bash:hexo:command not found</h2>
+<h4 id="错误描述-v2">错误描述</h4>
 <p>    隔了几天没有更新博文，再次使用hexo命令时，一直提示<code>command not found</code>。这个错误提示想必大家在其他地方也经常会遇到，通常情况下<code>command not found</code>是系统找不到执行命令的路径引起的。<br>
 比如我们在命令行输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo -v</div></pre></td></tr></table></figure>
 <p>如果命令行运行的当前目录不是执行命令的路径（一般为<code>../bin 目录</code>），则会提示无法找到命令。从这里我们就可以知道配置环境变量的优势了。</p>
-<h4 id="解决方式"><a class="header-anchor" href="#解决方式">¶</a>解决方式</h4>
+<h4 id="解决方式">解决方式</h4>
 <ul>
-<li>
-<p>设置环境变量<br>
-** <a href="http://jingyan.baidu.com/article/d5a880eb6aca7213f047cc6c.html" target="_blank" rel="external">windows添加环境变量</a><br>
-** <a href="http://jingyan.baidu.com/article/ea24bc399a73bcda62b33104.html" target="_blank" rel="external">linux添加环境变量</a></p>
-</li>
-<li>
-<p>直接进入命令所属目录执行命令</p>
-</li>
+<li>设置环境变量<br>
+<a href="http://jingyan.baidu.com/article/d5a880eb6aca7213f047cc6c.html" target="_blank" rel="external">windows添加环境变量</a><br>
+<a href="http://jingyan.baidu.com/article/ea24bc399a73bcda62b33104.html" target="_blank" rel="external">linux添加环境变量</a></li>
+<li>直接进入命令所属目录执行命令</li>
 </ul>
-<h4 id="小结"><a class="header-anchor" href="#小结">¶</a>小结</h4>
+<h4 id="小结">小结</h4>
 <p>安装hexo时默认会添加环境变量，报这个错误是因为我在配置其他环境变量时把hexo的路径删掉了！！🌀</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;摘要&lt;/h2&gt;
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
 &lt;p&gt;    如题，在我们学习一门全新的语言或者启动一个新项目时，大部分都需要对环境或者系统做一些相关的配置，对于新手来说，配置出错基本算是家常便饭了。&lt;br&gt;
     基础没打好，谈什么建高楼大厦呢？抛砖引玉，下面看看在使用&lt;strong&gt;hexo搭建博客&lt;/strong&gt;的过程中遇到的问题吧。&lt;/p&gt;
     
@@ -85,7 +81,7 @@
     <published>2016-12-12T01:56:21.000Z</published>
     <updated>2016-12-20T07:18:15.185Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="摘要"><a class="header-anchor" href="#摘要">¶</a>摘要</h2>
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    我们所说的路由与路由器其实是一个道理，通过一个入口接受请求，然后通过统一资源定位符（URL）匹配规则将请求分发到不同的地方。<br>
 具体到一些主流框架上面，比如基于PHP的<strong>laravel</strong>、<strong>thinkphp</strong>，基于node.js的<strong>Express</strong>等，Router模块会配合Http模块分析请求， 并且按照一定规则解析去匹配路由，然后使用调度模块使逻辑调到某块代码（通常是控制器），最后返回响应(Response)。<br>
 所以这种<strong>路由</strong>与家中上网使用的<strong>路由器</strong>，有异曲同工之妙。</p>
@@ -96,7 +92,7 @@
 <img src="/image-url" class="full-image" />
 </a>-->
 <!--more-->
-<h2 id="什么是路由"><a class="header-anchor" href="#什么是路由">¶</a>什么是路由</h2>
+<h2 id="什么是路由">什么是路由</h2>
 <blockquote>
 <p>路由本身的定义就是信息传递者，有请求指路的意思。</p>
 </blockquote>
@@ -110,7 +106,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;摘要&lt;/h2&gt;
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
 &lt;p&gt;    我们所说的路由与路由器其实是一个道理，通过一个入口接受请求，然后通过统一资源定位符（URL）匹配规则将请求分发到不同的地方。&lt;br&gt;
 具体到一些主流框架上面，比如基于PHP的&lt;strong&gt;laravel&lt;/strong&gt;、&lt;strong&gt;thinkphp&lt;/strong&gt;，基于node.js的&lt;strong&gt;Express&lt;/strong&gt;等，Router模块会配合Http模块分析请求， 并且按照一定规则解析去匹配路由，然后使用调度模块使逻辑调到某块代码（通常是控制器），最后返回响应(Response)。&lt;br&gt;
 所以这种&lt;strong&gt;路由&lt;/strong&gt;与家中上网使用的&lt;strong&gt;路由器&lt;/strong&gt;，有异曲同工之妙。&lt;/p&gt;
@@ -133,7 +129,7 @@
     <published>2016-12-09T02:34:45.000Z</published>
     <updated>2016-12-09T06:08:19.181Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="摘要"><a class="header-anchor" href="#摘要">¶</a>摘要</h2>
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    <code>ALTER TABLE</code>命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> titles <span class="keyword">CHANGE</span> title title <span class="built_in">VARCHAR</span>(<span class="number">150</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -143,26 +139,26 @@
 <!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
 <img src="/image-url" class="full-image" />
 </a>-->
-<h3 id="增加一个数据列"><a class="header-anchor" href="#增加一个数据列">¶</a>增加一个数据列</h3>
+<h3 id="增加一个数据列">增加一个数据列</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> newcloname coltype coloptions</div></pre></td></tr></table></figure>
-<h3 id="删除一个数据列"><a class="header-anchor" href="#删除一个数据列">¶</a>删除一个数据列</h3>
+<h3 id="删除一个数据列">删除一个数据列</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> cloname</div></pre></td></tr></table></figure>
-<h3 id="修改一个数据列"><a class="header-anchor" href="#修改一个数据列">¶</a>修改一个数据列</h3>
+<h3 id="修改一个数据列">修改一个数据列</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">CHANGE</span>  oldcloname newcloname coltype coloptions</div></pre></td></tr></table></figure>
-<h3 id="增加一个索引"><a class="header-anchor" href="#增加一个索引">¶</a>增加一个索引</h3>
+<h3 id="增加一个索引">增加一个索引</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span> (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> <span class="keyword">INDEX</span> [indexname] (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> [indexname] (indexcols)</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> FULLTEXT [indexname] (indexcols)</div></pre></td></tr></table></figure>
-<h3 id="增加一个外键约束条件"><a class="header-anchor" href="#增加一个外键约束条件">¶</a>增加一个外键约束条件</h3>
+<h3 id="增加一个外键约束条件">增加一个外键约束条件</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">ADD</span> FOREIGN <span class="keyword">KEY</span> [indexname] (column1) <span class="keyword">REFERENCES</span> table2(clumn2)</div></pre></td></tr></table></figure>
-<h3 id="删除一个索引"><a class="header-anchor" href="#删除一个索引">¶</a>删除一个索引</h3>
+<h3 id="删除一个索引">删除一个索引</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span> <span class="keyword">INDEX</span> indexname</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">DROP</span>  FOREIGN <span class="keyword">KEY</span> indexname</div></pre></td></tr></table></figure>
-<h3 id="改变全体文本数据列上的字符集"><a class="header-anchor" href="#改变全体文本数据列上的字符集">¶</a>改变全体文本数据列上的字符集</h3>
+<h3 id="改变全体文本数据列上的字符集">改变全体文本数据列上的字符集</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> chartsetname</div></pre></td></tr></table></figure>
-<h3 id="改变数据表的类型-myisam-innodb"><a class="header-anchor" href="#改变数据表的类型-myisam-innodb">¶</a>改变数据表的类型（MyISAM、InnoDB）</h3>
+<h3 id="改变数据表的类型-myisam-innodb">改变数据表的类型（MyISAM、InnoDB）</h3>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename ENGIN typename</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;摘要&lt;/h2&gt;
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
 &lt;p&gt;    &lt;code&gt;ALTER TABLE&lt;/code&gt;命令可以用来改变一个数据表的许多细节设计，比如增加或删除一些数据列、改变数据列的属性（如数据类型）、定义和删除各种索引等。例如：&lt;/p&gt;
 &lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; titles &lt;span class=&quot;keyword&quot;&gt;CHANGE&lt;/span&gt; title title &lt;span class=&quot;built_in&quot;&gt;VARCHAR&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;150&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
@@ -184,7 +180,7 @@
     <published>2016-12-05T03:39:35.000Z</published>
     <updated>2016-12-09T09:24:29.389Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="摘要"><a class="header-anchor" href="#摘要">¶</a>摘要</h2>
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    git是一张弓，github是靶子，你的源代码是箭（来自<a href="https://www.zhihu.com/people/jacobpeng/answers" target="_blank" rel="external">Jacob Peng</a>）。程序员对版本管理都不陌生，它可以用来记录项目的修改，项目成员之间的沟通和交流。<br>
     github是一个基于git的开源项目托管平台,它提供了web界面,你可以在上面创建资源仓库来存放你的项目，并用git在本地进行远程管理。</p>
 <a id="more"></a>
@@ -193,17 +189,17 @@
 <!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
 <img src="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" class="full-image"/>
 </a>-->
-<h2 id="常用的git操作"><a class="header-anchor" href="#常用的git操作">¶</a>常用的git操作</h2>
-<h3 id="git连接github"><a class="header-anchor" href="#git连接github">¶</a>git连接github</h3>
+<h2 id="常用的git操作">常用的git操作</h2>
+<h3 id="git连接github">git连接github</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
-<h3 id="本地克隆repository"><a class="header-anchor" href="#本地克隆repository">¶</a>本地克隆repository</h3>
+<h3 id="本地克隆repository">本地克隆repository</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> [目标仓库链接地址]</div></pre></td></tr></table></figure>
-<h3 id="代码提交"><a class="header-anchor" href="#代码提交">¶</a>代码提交</h3>
+<h3 id="代码提交">代码提交</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git add [.或file]</div><div class="line">$ git commit -m <span class="string">"提交信息"</span></div><div class="line">$ git pull [目标仓库链接地址]</div><div class="line">$ git push [目标仓库链接地址]</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;摘要&lt;/h2&gt;
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
 &lt;p&gt;    git是一张弓，github是靶子，你的源代码是箭（来自&lt;a href=&quot;https://www.zhihu.com/people/jacobpeng/answers&quot;&gt;Jacob Peng&lt;/a&gt;）。程序员对版本管理都不陌生，它可以用来记录项目的修改，项目成员之间的沟通和交流。&lt;br&gt;
     github是一个基于git的开源项目托管平台,它提供了web界面,你可以在上面创建资源仓库来存放你的项目，并用git在本地进行远程管理。&lt;/p&gt;
     
@@ -227,13 +223,13 @@
     <published>2016-12-02T01:40:07.000Z</published>
     <updated>2016-12-02T05:57:20.561Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="摘要"><a class="header-anchor" href="#摘要">¶</a>摘要</h2>
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。<br>
     本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。</p>
 <a id="more"></a>
-<h2 id="redis简介"><a class="header-anchor" href="#redis简介">¶</a>Redis简介</h2>
+<h2 id="redis简介">Redis简介</h2>
 <p>    使用key-value储存，一个开源(BSD许可),内存存储的数据结构服务器,可用作数据库,高速缓存和消息队列代理。</p>
-<h2 id="数据类型"><a class="header-anchor" href="#数据类型">¶</a>数据类型</h2>
+<h2 id="数据类型">数据类型</h2>
 <ul>
 <li>字符串（string）</li>
 <li>哈希（hash）</li>
@@ -241,10 +237,10 @@
 <li>集合（sort）</li>
 <li>有序集合（sort set）</li>
 </ul>
-<h2 id="学习tips"><a class="header-anchor" href="#学习tips">¶</a>学习Tips</h2>
+<h2 id="学习tips">学习Tips</h2>
 <p><a href="http://naotu.baidu.com/file/3711c01eaee4359f57dc9c031012f30e?token=9b060c8bb77dd860" target="_blank">Redis学习网</a><br>
 <a href="http://www.cnblogs.com/stephen-liu74/archive/2012/03/12/2348935.html" target="_blank" rel="external">Stephen Liu-Redis学习手册</a></p>
-<h2 id="应用场景"><a class="header-anchor" href="#应用场景">¶</a>应用场景</h2>
+<h2 id="应用场景">应用场景</h2>
 <blockquote>
 <p>Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。本文列出了11个这样的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。</p>
 </blockquote>
@@ -283,7 +279,7 @@
 <p>缓存</p>
 </li>
 </ol>
-<h2 id="结语"><a class="header-anchor" href="#结语">¶</a>结语</h2>
+<h2 id="结语">结语</h2>
 <p>Redis命令，简洁但功能强大，组合使用效果更佳，这点本人在项目中深有体会。</p>
 <p>目前使用的较多的是字符串数据类型的一些命令，我们常在存取比大于7:3时使用Redis减少数据库压力。</p>
 <p>比如访问量较大的首页区块，何时写Redis也值得好好思考。</p>
@@ -291,7 +287,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;摘要&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;摘要&lt;/h2&gt;
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
 &lt;p&gt;    Redis的一个很大好处就是可以不用整个转入到这个数据库，而是可以沿用之前的MySQL等数据库，而仅在一些特定的应用场景通过Redis的特性提高效率。&lt;br&gt;
     本文整理了11个在项目开发中可能使用的Web应用场景，如显示最新的项目列表、删除和过滤、排行榜等相关需求。&lt;/p&gt;
     
@@ -316,18 +312,18 @@
     <content type="html"><![CDATA[<p>折腾了这么久终于找到一个喜欢的博客主题了，那就是Hexo-NexT,Hexo基于node.js,之前自己也试着用node仿了一个简书的博客主题，支持多人登录。<br>
 完善之后再放出来遛遛了。废话不多说，多看书，写好文。</p>
 <a id="more"></a>
-<h2 id="快速入门"><a class="header-anchor" href="#快速入门">¶</a>快速入门</h2>
-<h3 id="新建文章"><a class="header-anchor" href="#新建文章">¶</a>新建文章</h3>
+<h2 id="快速入门">快速入门</h2>
+<h3 id="新建文章">新建文章</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="启动服务器"><a class="header-anchor" href="#启动服务器">¶</a>启动服务器</h3>
+<h3 id="启动服务器">启动服务器</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server p -5000</div></pre></td></tr></table></figure>
 <p>默认端口为4000<br>
 More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="生成静态文件"><a class="header-anchor" href="#生成静态文件">¶</a>生成静态文件</h3>
+<h3 id="生成静态文件">生成静态文件</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="发布"><a class="header-anchor" href="#发布">¶</a>发布</h3>
+<h3 id="发布">发布</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>

@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="¶摘要
+<meta name="description" content="摘要
     如题，在我们学习一门全新的语言或者启动一个新项目时，大部分都需要对环境或者系统做一些相关的配置，对于新手来说，配置出错基本算是家常便饭了。
     基础没打好，谈什么建高楼大厦呢？抛砖引玉，下面看看在使用hexo搭建博客的过程中遇到的问题吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo常见错误及其解决方法">
 <meta property="og:url" content="http://yoursite.com/2016/12/20/hexo-bugs/index.html">
 <meta property="og:site_name" content="原子酱">
-<meta property="og:description" content="¶摘要
+<meta property="og:description" content="摘要
     如题，在我们学习一门全新的语言或者启动一个新项目时，大部分都需要对环境或者系统做一些相关的配置，对于新手来说，配置出错基本算是家常便饭了。
     基础没打好，谈什么建高楼大厦呢？抛砖引玉，下面看看在使用hexo搭建博客的过程中遇到的问题吧。">
-<meta property="og:updated_time" content="2016-12-21T10:14:19.466Z">
+<meta property="og:updated_time" content="2016-12-22T01:17:40.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo常见错误及其解决方法">
-<meta name="twitter:description" content="¶摘要
+<meta name="twitter:description" content="摘要
     如题，在我们学习一门全新的语言或者启动一个新项目时，大部分都需要对环境或者系统做一些相关的配置，对于新手来说，配置出错基本算是家常便饭了。
     基础没打好，谈什么建高楼大厦呢？抛砖引玉，下面看看在使用hexo搭建博客的过程中遇到的问题吧。">
 
@@ -404,17 +404,17 @@
       
 
       
-        <h2 id="摘要"><a class="header-anchor" href="#摘要">¶</a>摘要</h2>
+        <h2 id="摘要">摘要</h2>
 <p>    如题，在我们学习一门全新的语言或者启动一个新项目时，大部分都需要对环境或者系统做一些相关的配置，对于新手来说，配置出错基本算是家常便饭了。<br>
     基础没打好，谈什么建高楼大厦呢？抛砖引玉，下面看看在使用<strong>hexo搭建博客</strong>的过程中遇到的问题吧。</p>
 <a id="more"></a>
-<h2 id="1-localhost-4000访问无响应"><a class="header-anchor" href="#1-localhost-4000访问无响应">¶</a>1. localhost:4000访问无响应</h2>
-<h4 id="错误描述"><a class="header-anchor" href="#错误描述">¶</a>错误描述</h4>
+<h2 id="1-localhost-4000访问无响应">1. localhost:4000访问无响应</h2>
+<h4 id="错误描述">错误描述</h4>
 <ul>
 <li>终端无报错信息，显示<code>INFO Hexo is running at http://0.0.0.0:4000/</code></li>
 <li>浏览器输入localhost:4000打开标签页一直在加载</li>
 </ul>
-<h4 id="解决方案"><a class="header-anchor" href="#解决方案">¶</a>解决方案</h4>
+<h4 id="解决方案">解决方案</h4>
 <p>4000是hexo服务器的默认监听端口，可以通过以下命令查看端口占用情况：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">netstat -ano</div><div class="line">//进程筛选</div><div class="line">netstat -ano | findstr <span class="string">"4000"</span></div></pre></td></tr></table></figure>
 <p>解决端口占用问题我们重新设置一个端口port即可。（推荐文档：<a href="https://hexo.io/zh-cn/docs/server.html#hexo-server" target="_blank" rel="external">Hexo服务器</a>）</p>
@@ -422,24 +422,20 @@
 <p>Hexo可以监视文件变动并自动更新，这意味着你更改文件后无需重启服务器就能在浏览器中看到修改结果。<br>
 当看到如下结果时，输入提示地址即可以访问你的页面😃。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo server -p 5000</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:5000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
-<h2 id="2-bash-hexo-command-not-found"><a class="header-anchor" href="#2-bash-hexo-command-not-found">¶</a>2. bash:hexo:command not found</h2>
-<h4 id="错误描述-v2"><a class="header-anchor" href="#错误描述-v2">¶</a>错误描述</h4>
+<h2 id="2-bash-hexo-command-not-found">2. bash:hexo:command not found</h2>
+<h4 id="错误描述-v2">错误描述</h4>
 <p>    隔了几天没有更新博文，再次使用hexo命令时，一直提示<code>command not found</code>。这个错误提示想必大家在其他地方也经常会遇到，通常情况下<code>command not found</code>是系统找不到执行命令的路径引起的。<br>
 比如我们在命令行输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo -v</div></pre></td></tr></table></figure>
 <p>如果命令行运行的当前目录不是执行命令的路径（一般为<code>../bin 目录</code>），则会提示无法找到命令。从这里我们就可以知道配置环境变量的优势了。</p>
-<h4 id="解决方式"><a class="header-anchor" href="#解决方式">¶</a>解决方式</h4>
+<h4 id="解决方式">解决方式</h4>
 <ul>
-<li>
-<p>设置环境变量<br>
-** <a href="http://jingyan.baidu.com/article/d5a880eb6aca7213f047cc6c.html" target="_blank" rel="external">windows添加环境变量</a><br>
-** <a href="http://jingyan.baidu.com/article/ea24bc399a73bcda62b33104.html" target="_blank" rel="external">linux添加环境变量</a></p>
-</li>
-<li>
-<p>直接进入命令所属目录执行命令</p>
-</li>
+<li>设置环境变量<br>
+<a href="http://jingyan.baidu.com/article/d5a880eb6aca7213f047cc6c.html" target="_blank" rel="external">windows添加环境变量</a><br>
+<a href="http://jingyan.baidu.com/article/ea24bc399a73bcda62b33104.html" target="_blank" rel="external">linux添加环境变量</a></li>
+<li>直接进入命令所属目录执行命令</li>
 </ul>
-<h4 id="小结"><a class="header-anchor" href="#小结">¶</a>小结</h4>
+<h4 id="小结">小结</h4>
 <p>安装hexo时默认会添加环境变量，报这个错误是因为我在配置其他环境变量时把hexo的路径删掉了！！🌀</p>
 
       
@@ -632,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">¶摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-localhost-4000访问无响应"><span class="nav-number">2.</span> <span class="nav-text">¶1. localhost:4000访问无响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误描述"><span class="nav-number">2.0.1.</span> <span class="nav-text">¶错误描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方案"><span class="nav-number">2.0.2.</span> <span class="nav-text">¶解决方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-bash-hexo-command-not-found"><span class="nav-number">3.</span> <span class="nav-text">¶2. bash:hexo:command not found</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误描述-v2"><span class="nav-number">3.0.1.</span> <span class="nav-text">¶错误描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方式"><span class="nav-number">3.0.2.</span> <span class="nav-text">¶解决方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">3.0.3.</span> <span class="nav-text">¶小结</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-localhost-4000访问无响应"><span class="nav-number">2.</span> <span class="nav-text">1. localhost:4000访问无响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误描述"><span class="nav-number">2.0.1.</span> <span class="nav-text">错误描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方案"><span class="nav-number">2.0.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-bash-hexo-command-not-found"><span class="nav-number">3.</span> <span class="nav-text">2. bash:hexo:command not found</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误描述-v2"><span class="nav-number">3.0.1.</span> <span class="nav-text">错误描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方式"><span class="nav-number">3.0.2.</span> <span class="nav-text">解决方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">3.0.3.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
