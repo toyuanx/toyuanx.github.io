@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-22T01:17:40.296Z</updated>
+  <updated>2016-12-22T03:13:40.291Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,17 +16,97 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>API是什么</title>
+    <link href="http://yoursite.com/2016/12/22/api/"/>
+    <id>http://yoursite.com/2016/12/22/api/</id>
+    <published>2016-12-22T02:42:30.000Z</published>
+    <updated>2016-12-22T03:13:40.291Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
+<p>    API（Application Programming Interface，应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。<br>
+    简单的说，就是通过某一预先定义的渠道读/写数据的方式。</p>
+<a id="more"></a>
+<h3 id="例如：">例如：</h3>
+<p>条形码查询：<a href="http://data.3023.com/" target="_blank" rel="external">http://data.3023.com/</a></p>
+<h3 id="接口：">接口：</h3>
+<pre><code>http://api.3023.com/barcode/barcode?barcode=6936292120079
+</code></pre>
+<h3 id="方式：get">方式：GET</h3>
+<p><strong>请求参数：</strong></p>
+<pre><code>参数：barcode
+位置：urlParam
+必填：是
+说明：条形码（8-14位数字），正则：/^[0-9]{8,14}$/
+</code></pre>
+<p><strong>返回示例：</strong></p>
+<pre><code>{
+    &quot;name&quot;: &quot;石药阿莫西林胶囊0.25g×50粒/盒&quot;,
+    &quot;price&quot;: &quot;9&quot;,
+    &quot;spec&quot;: &quot;0.25g×50粒/盒&quot;,
+    &quot;brand&quot;: &quot;石药&quot;,
+    &quot;country&quot;: &quot;中国&quot;,
+    &quot;company&quot;: &quot;石药集团中诺药业(石家庄)有限公司&quot;,
+    &quot;prefix&quot;: &quot;69362921&quot;,
+    &quot;addr&quot;: &quot;&quot;,
+    &quot;gtin&quot;: &quot;http://www.anccnet.com/comm/GTIN.aspx?GTIN=06936292120079&quot;
+}
+</code></pre>
+<ul>
+<li>
+<p>API接口广泛应用于APP、客户端、网页、软件等，不仅适用于获取数据（读），也适用于更新数据、删除数据（写）以及其他操作等。</p>
+</li>
+<li>
+<p>API接口的数据传输方式不仅仅局限于HTTP协议，也可以使用TCP、UDP协议等。</p>
+</li>
+<li>
+<p>宽泛的说，API接口就是一种传输（操作）数据的方式</p>
+</li>
+</ul>
+<p>互联网无非就是数据的传输，可以说互联网所有APP、客户端、网页，均应用了API接口这一技术。</p>
+<h3 id="为什么说网页也应用了api接口技术？">为什么说网页也应用了API接口技术？</h3>
+<p>例如：</p>
+<p><a href="https://www.zhihu.com/question/38594466/" target="_blank" rel="external">https://www.zhihu.com/question/38594466/</a></p>
+<p>我们能可以把这一网址就理解为一个API接口，其中 38594466 即为变量，只是说它返回的数据并不是标准的JSON或XML格式而已（套用了模版），实际上它在服务端也就是读写数据库的操作，原始数据同样也可以返回标准的JSON/XML格式。</p>
+<p>开放平台、oauth是应用API接口技术的一个典型。</p>
+<p>作者：Break<br>
+链接：<a href="https://www.zhihu.com/question/38594466/answer/130624426" target="_blank" rel="external">https://www.zhihu.com/question/38594466/answer/130624426</a><br>
+来源：知乎<br>
+著作权归作者所有，转载请联系作者获得授权。</p>
+<h3 id="好文推荐">好文推荐</h3>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="external">RESTful API 设计指南</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
+&lt;p&gt;    API（Application Programming Interface，应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。&lt;br&gt;
+    简单的说，就是通过某一预先定义的渠道读/写数据的方式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="名称精选" scheme="http://yoursite.com/categories/%E5%90%8D%E7%A7%B0%E7%B2%BE%E9%80%89/"/>
+    
+      <category term="API" scheme="http://yoursite.com/categories/%E5%90%8D%E7%A7%B0%E7%B2%BE%E9%80%89/API/"/>
+    
+    
+      <category term="转载" scheme="http://yoursite.com/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo常见错误及其解决方法</title>
     <link href="http://yoursite.com/2016/12/20/hexo-bugs/"/>
     <id>http://yoursite.com/2016/12/20/hexo-bugs/</id>
     <published>2016-12-20T08:11:11.000Z</published>
-    <updated>2016-12-22T01:17:40.296Z</updated>
+    <updated>2016-12-22T01:37:46.382Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    如题，在我们学习一门全新的语言或者启动一个新项目时，大部分都需要对环境或者系统做一些相关的配置，对于新手来说，配置出错基本算是家常便饭了。<br>
     基础没打好，谈什么建高楼大厦呢？抛砖引玉，下面看看在使用<strong>hexo搭建博客</strong>的过程中遇到的问题吧。</p>
 <a id="more"></a>
-<h2 id="1-localhost-4000访问无响应">1. localhost:4000访问无响应</h2>
+<h2 id="localhost-4000访问无响应">localhost:4000访问无响应</h2>
 <h4 id="错误描述">错误描述</h4>
 <ul>
 <li>终端无报错信息，显示<code>INFO Hexo is running at http://0.0.0.0:4000/</code></li>
@@ -34,17 +114,17 @@
 </ul>
 <h4 id="解决方案">解决方案</h4>
 <p>4000是hexo服务器的默认监听端口，可以通过以下命令查看端口占用情况：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">netstat -ano</div><div class="line">//进程筛选</div><div class="line">netstat -ano | findstr <span class="string">"4000"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ netstat -ano</div><div class="line">//进程筛选</div><div class="line">$ netstat -ano | findstr <span class="string">"4000"</span></div></pre></td></tr></table></figure>
 <p>解决端口占用问题我们重新设置一个端口port即可。（推荐文档：<a href="https://hexo.io/zh-cn/docs/server.html#hexo-server" target="_blank" rel="external">Hexo服务器</a>）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//安装hexo-server</div><div class="line">npm install hexo-server --save</div><div class="line">//启动服务器</div><div class="line">hexo server</div><div class="line">//更改端口</div><div class="line">hexo server -p 5000</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//安装hexo-server</div><div class="line">$ npm install hexo-server --save</div><div class="line">//启动服务器</div><div class="line">hexo server</div><div class="line">//更改端口</div><div class="line">$ hexo server -p 5000</div></pre></td></tr></table></figure>
 <p>Hexo可以监视文件变动并自动更新，这意味着你更改文件后无需重启服务器就能在浏览器中看到修改结果。<br>
 当看到如下结果时，输入提示地址即可以访问你的页面😃。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo server -p 5000</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:5000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
-<h2 id="2-bash-hexo-command-not-found">2. bash:hexo:command not found</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo server -p 5000</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:5000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
+<h2 id="bash-hexo-command-not-found">bash:hexo:command not found</h2>
 <h4 id="错误描述-v2">错误描述</h4>
 <p>    隔了几天没有更新博文，再次使用hexo命令时，一直提示<code>command not found</code>。这个错误提示想必大家在其他地方也经常会遇到，通常情况下<code>command not found</code>是系统找不到执行命令的路径引起的。<br>
 比如我们在命令行输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo -v</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
 <p>如果命令行运行的当前目录不是执行命令的路径（一般为<code>../bin 目录</code>），则会提示无法找到命令。从这里我们就可以知道配置环境变量的优势了。</p>
 <h4 id="解决方式">解决方式</h4>
 <ul>
@@ -55,6 +135,10 @@
 </ul>
 <h4 id="小结">小结</h4>
 <p>安装hexo时默认会添加环境变量，报这个错误是因为我在配置其他环境变量时把hexo的路径删掉了！！🌀</p>
+<h2 id="包含具体提示的错误">包含具体提示的错误</h2>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ hexo server -p 5000</div><div class="line">FATAL name of an <span class="built_in">alias</span> node must contain at least one character at line 120, column 23:</div><div class="line">        permalinkSymbol: *</div><div class="line">                          ^</div><div class="line">YAMLException: name of an <span class="built_in">alias</span> node must contain at least one character at line 120, column 23:</div><div class="line">        permalinkSymbol: *</div><div class="line">                          ^</div></pre></td></tr></table></figure>
+<p>类似此类在运行hexo服务器或其他hexo命令时遇到的错误，基本上都会有非常明确的提示，按照提示找到相应的文件出错点修改即可，一般为<code>字符错误</code>，即字符使用不当。</p>
 ]]></content>
     
     <summary type="html">
