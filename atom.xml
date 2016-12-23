@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-22T03:13:40.291Z</updated>
+  <updated>2016-12-23T09:49:58.920Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,96 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PHP与jQuery</title>
+    <link href="http://yoursite.com/2016/12/23/PHP%E4%B8%8EjQuery/"/>
+    <id>http://yoursite.com/2016/12/23/PHP与jQuery/</id>
+    <published>2016-12-23T07:56:20.000Z</published>
+    <updated>2016-12-23T09:49:58.920Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
+<p>    作为一个初入PHP，偶尔写一点后台管理系统的前端部分的小菜鸟，需要学习的东西真的太多太多。<br>
+    循序渐进，本月研读了**《Pro PHP and jQuery》**这本书，印象深刻，所以趁热打铁整理了一些对前后端联调很有用的小Tips。</p>
+<a id="more"></a>
+<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
+<!-- 其中 class="full-image" 是必须的 -->
+<!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
+<img src="/image-url" class="full-image" />
+</a>-->
+<blockquote>
+<p>后台向前端传值方式：1、模板输出(smarty); 2、ajax函数回调；</p>
+</blockquote>
+<h2 id="写在最前">写在最前</h2>
+<p>为了防止PHP中的变量符<code>$</code>与jQuery冲突，本文代码中<code>jQuery</code>与正常情况使用jQuery时的<code>$</code>等价。</p>
+<h2 id="准备工作">准备工作</h2>
+<h3 id="获取数据">获取数据</h3>
+<p>即传送给后端的数据，多数为表单内容。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jQuery(<span class="string">'.content'</span>).html();  <span class="comment">//获取标签内所有内容，包括html符号等</span></div><div class="line">jQuery(<span class="string">'.content'</span>).text();  <span class="comment">//获取标签内所有文本</span></div><div class="line">jQuery(<span class="string">'.content'</span>).val();  <span class="comment">//获取value值</span></div><div class="line">jQuery(<span class="keyword">this</span>).parent().find(<span class="string">'.content'</span>).text(); <span class="comment">//在当前元素的父元素中查找content类，并获取文本值</span></div><div class="line">jQuery(<span class="keyword">this</span>).attr(<span class="string">'type'</span>);  <span class="comment">//获取当前元素type属性的值</span></div></pre></td></tr></table></figure>
+<h3 id="前端数据验证">前端数据验证</h3>
+<p>为防止前端频繁访问后台，加大服务器压力，前端需进行数据验证。</p>
+<ul>
+<li>空值判断：</li>
+<li>手机号、电子邮件等：使用正则表达式验证</li>
+<li>提醒式验证：如“确定删除”，可以使用<code>confirm()</code>等方法。</li>
+</ul>
+<p>验证失败可弹出提示或重定位界面。</p>
+<h3 id="ajax传值">ajax传值</h3>
+<p>前端验证成功后就可以向后台请求数据了，jQuery给我们封装了ajax方法，多数操作将是<code>success</code>回调函数中完成。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">jQuery.ajax(&#123;</div><div class="line">	<span class="attr">type</span>: <span class="string">'post'</span>,	<span class="comment">//传值方式，post/get</span></div><div class="line">	url: <span class="string">'/gxapi/rank'</span>,	<span class="comment">//请求地址</span></div><div class="line">	dataType: <span class="string">"json"</span>,   <span class="comment">//传送数据格式，json是前后端常用传值数据格式</span></div><div class="line">	data: &#123;<span class="attr">content</span>: content, <span class="attr">type</span>: type&#125;, <span class="comment">//要传送的数据值&#123;后端接受字段名称：前端发送字段名称&#125;,通常另两者名称相等。</span></div><div class="line">	success: funtion (res) &#123;</div><div class="line">		<span class="keyword">if</span>(res.code) &#123;</div><div class="line">			<span class="comment">//有数据的操作,多在此更改局部数据</span></div><div class="line">			...</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="comment">//请求失败，多为未登录、无数据等</span></div><div class="line">			...</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意：1、浏览器可以自动识别json数据，web应用可以不用设置；2、如果涉及移动端，则必须设置json格式；3、跨域请求数据需设置dataType格式为<code>jsonp</code>。</p>
+<h2 id="碎片功能">碎片功能</h2>
+<h3 id="点击事件">点击事件</h3>
+<p>点击某元素触发事件，如增加、删除、编辑等。</p>
+<ul>
+<li>通过模板渲染所得的页面，可以直接对dom元素进行操作，例如：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">jQuery(<span class="string">'.btn'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">//点击事件后续操作</span></div><div class="line">	...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>通过动态生成得到的界面，操作dom元素时需要绑定元素，下面的例子中，<code>list</code>类是非动态生成的元素，我们将<code>delete</code>点击事件绑定到该元素上，例：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">jQuery(<span class="string">'.list'</span>).on(<span class="string">'click'</span>, <span class="string">'.delete'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">//点击事件后续操作</span></div><div class="line">	...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>其中<code>click</code>可以更改为<code>change</code>、<code>hover</code>等，在对列表进行操作时常用。另外还有一种方式，适用于jQuery版本较低的场景。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">jQuery(<span class="string">".list"</span>).delegate(<span class="string">".delete"</span>, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">//点击事件后续操作</span></div><div class="line">	...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>需要注意的是，这两个方法的<code>click</code>位置不同。</p>
+<h3 id="数据处理">数据处理</h3>
+<ul>
+<li>保留小数点后两位：Number(num).toFixed(2)</li>
+<li>遍历：可用于批量操作</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> jQuery.each(res.data, <span class="function"><span class="keyword">function</span> (<span class="params">i, item</span>) </span>&#123;</div><div class="line">	<span class="comment">//批量操作、结合append()生成列表行等</span></div><div class="line">	...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="其他小技巧">其他小技巧</h3>
+<ul>
+<li>前端获取到数据后可以存在<code>display:none</code>的标签里，便于以后使用。</li>
+<li>要更改样式最简单的方法还是通过css，故我们可以通过给元素添加class并设置class的值来批量更改样式。</li>
+</ul>
+<p>PS：需要中文版**《Pro PHP and jQuery》**（深入PHP与jQuery，包括书籍源代码.pdf）的同学可以给我留言。<br>
+仅限用于学习交流。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
+&lt;p&gt;    作为一个初入PHP，偶尔写一点后台管理系统的前端部分的小菜鸟，需要学习的东西真的太多太多。&lt;br&gt;
+    循序渐进，本月研读了**《Pro PHP and jQuery》**这本书，印象深刻，所以趁热打铁整理了一些对前后端联调很有用的小Tips。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目开发" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
     <title>API是什么</title>
     <link href="http://yoursite.com/2016/12/22/api/"/>
     <id>http://yoursite.com/2016/12/22/api/</id>
     <published>2016-12-22T02:42:30.000Z</published>
-    <updated>2016-12-22T03:13:40.291Z</updated>
+    <updated>2016-12-23T08:01:37.685Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    API（Application Programming Interface，应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。<br>
@@ -86,9 +171,9 @@
     
     </summary>
     
-      <category term="名称精选" scheme="http://yoursite.com/categories/%E5%90%8D%E7%A7%B0%E7%B2%BE%E9%80%89/"/>
+      <category term="名词精选" scheme="http://yoursite.com/categories/%E5%90%8D%E8%AF%8D%E7%B2%BE%E9%80%89/"/>
     
-      <category term="API" scheme="http://yoursite.com/categories/%E5%90%8D%E7%A7%B0%E7%B2%BE%E9%80%89/API/"/>
+      <category term="API" scheme="http://yoursite.com/categories/%E5%90%8D%E8%AF%8D%E7%B2%BE%E9%80%89/API/"/>
     
     
       <category term="转载" scheme="http://yoursite.com/tags/%E8%BD%AC%E8%BD%BD/"/>
@@ -262,7 +347,7 @@
     <link href="http://yoursite.com/2016/12/05/git%E4%B8%8Egithub%E4%BA%8C%E4%B8%89%E4%BA%8B/"/>
     <id>http://yoursite.com/2016/12/05/git与github二三事/</id>
     <published>2016-12-05T03:39:35.000Z</published>
-    <updated>2016-12-09T09:24:29.389Z</updated>
+    <updated>2016-12-23T07:55:37.779Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    git是一张弓，github是靶子，你的源代码是箭（来自<a href="https://www.zhihu.com/people/jacobpeng/answers" target="_blank" rel="external">Jacob Peng</a>）。程序员对版本管理都不陌生，它可以用来记录项目的修改，项目成员之间的沟通和交流。<br>
