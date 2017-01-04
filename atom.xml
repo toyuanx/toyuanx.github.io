@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-23T09:55:58.104Z</updated>
+  <updated>2016-12-30T02:55:49.279Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>高频正则表达式</title>
+    <link href="http://yoursite.com/2016/12/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://yoursite.com/2016/12/30/正则表达式/</id>
+    <published>2016-12-30T02:02:00.000Z</published>
+    <updated>2016-12-30T02:55:49.279Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
+<p>    最近使用正则表达式进行<strong>字段验证</strong>的次数有明显增加趋势，许多程序设计语言都支持利用正则表达式进行字符串操作。趁此机会学习了正则表达式的语法，并整理了开发时常用正则表达式，好记性不如烂笔头，方便以后直接取用。</p>
+<a id="more"></a>
+<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
+<!-- 其中 class="full-image" 是必须的 -->
+<!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
+<img src="/image-url" class="full-image" />
+</a>-->
+<h2 id="个人信息类">个人信息类</h2>
+<ul>
+<li>邮箱地址：^\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)*$</li>
+<li>手机号：^1\d{10}$</li>
+<li>身份证号：^\d{15}|\d{18}$</li>
+<li>密码（以字母开头，长度在6~18之间，只能包含字母、数字和下划线）：<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>\w{5,17}$</li>
+<li>QQ：[\d]{6,11}$</li>
+</ul>
+<h2 id="业务类">业务类</h2>
+<ul>
+<li>股票：</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>a-zA-Z <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
+&lt;p&gt;    最近使用正则表达式进行&lt;strong&gt;字段验证&lt;/strong&gt;的次数有明显增加趋势，许多程序设计语言都支持利用正则表达式进行字符串操作。趁此机会学习了正则表达式的语法，并整理了开发时常用正则表达式，好记性不如烂笔头，方便以后直接取用。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具箱" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7%E7%AE%B1/"/>
+    
+      <category term="正则表达式" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PHP与jQuery</title>
     <link href="http://yoursite.com/2016/12/23/PHP%E4%B8%8EjQuery/"/>
     <id>http://yoursite.com/2016/12/23/PHP与jQuery/</id>
     <published>2016-12-23T07:56:20.000Z</published>
-    <updated>2016-12-23T09:55:58.104Z</updated>
+    <updated>2017-01-04T03:37:41.278Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
 <p>    作为一个初入PHP，偶尔写一点后台管理系统的前端部分的小菜鸟，需要学习的东西真的太多太多。<br>
@@ -72,6 +126,7 @@
 <li>遍历：可用于批量操作</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> jQuery.each(res.data, <span class="function"><span class="keyword">function</span> (<span class="params">i, item</span>) </span>&#123;</div><div class="line">	<span class="comment">//批量操作、结合append()生成列表行等</span></div><div class="line">	...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意：当遍历dom元素时<strong>一定要注意</strong>在遍历前元素已经生成。</p>
 <h3 id="其他小技巧">其他小技巧</h3>
 <ul>
 <li>前端获取到数据后可以存在<code>display:none</code>的标签里，便于以后使用。</li>
