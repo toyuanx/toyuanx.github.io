@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="原子酱">
 <meta property="og:description" content="摘要
     最近使用正则表达式进行字段验证的次数有明显增加趋势，许多程序设计语言都支持利用正则表达式进行字符串操作。趁此机会学习了正则表达式的语法，并整理了开发时常用正则表达式，好记性不如烂笔头，方便以后直接取用。">
-<meta property="og:updated_time" content="2016-12-30T02:55:49.279Z">
+<meta property="og:updated_time" content="2017-01-04T06:25:55.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高频正则表达式">
 <meta name="twitter:description" content="摘要
@@ -414,20 +414,14 @@
 <li>邮箱地址：^\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)*$</li>
 <li>手机号：^1\d{10}$</li>
 <li>身份证号：^\d{15}|\d{18}$</li>
-<li>密码（以字母开头，长度在6~18之间，只能包含字母、数字和下划线）：<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>\w{5,17}$</li>
-<li>QQ：[\d]{6,11}$</li>
+<li>密码：^[a-zA-Z]\w{5,17}$<br>
+    （以字母开头，长度在6~18之间，只能包含字母、数字和下划线）</li>
+<li>QQ：^[\d]{6,11}$</li>
 </ul>
 <h2 id="业务类">业务类</h2>
 <ul>
-<li>股票：</li>
+<li>股票：^[a-z]{2}\d{6}$</li>
 </ul>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>a-zA-Z <a href="#fnref1" class="footnote-backref">↩</a></p>
-</li>
-</ol>
-</section>
 
       
     </div>
@@ -471,6 +465,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/04/排序/" rel="prev" title="排行榜：根据不同字段进行排序">
+                排行榜：根据不同字段进行排序 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -542,7 +540,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -550,7 +548,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
