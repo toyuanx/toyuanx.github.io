@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PHP," />
+  <meta name="keywords" content="Javascript," />
 
 
 
@@ -87,21 +87,20 @@
 
 
 <meta name="description" content="摘要
-    我们所说的路由与路由器其实是一个道理，通过一个入口接受请求，然后通过统一资源定位符（URL）匹配规则将请求分发到不同的地方。
-具体到一些主流框架上面，比如基于PHP的laravel、thinkphp，基于node.js的Express等，Router模块会配合Http模块分析请求， 并且按照一定规则解析去匹配路由，然后使用调度模块使逻辑调到某块代码（通常是控制器），最后返回响应(Re">
+    echart官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="两分钟学懂路由">
-<meta property="og:url" content="http://yoursite.com/2016/12/12/路由/index.html">
+<meta property="og:title" content="从环形图快速掌握图表利器—echarts">
+<meta property="og:url" content="http://yoursite.com/2017/01/13/echart/index.html">
 <meta property="og:site_name" content="原子酱">
 <meta property="og:description" content="摘要
-    我们所说的路由与路由器其实是一个道理，通过一个入口接受请求，然后通过统一资源定位符（URL）匹配规则将请求分发到不同的地方。
-具体到一些主流框架上面，比如基于PHP的laravel、thinkphp，基于node.js的Express等，Router模块会配合Http模块分析请求， 并且按照一定规则解析去匹配路由，然后使用调度模块使逻辑调到某块代码（通常是控制器），最后返回响应(Re">
-<meta property="og:updated_time" content="2016-12-20T07:18:15.185Z">
+    echart官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。">
+<meta property="og:image" content="http://ohi217i4w.bkt.clouddn.com/blog/images/echart-demo1.pngechart-demo1.png">
+<meta property="og:updated_time" content="2017-01-13T05:10:53.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="两分钟学懂路由">
+<meta name="twitter:title" content="从环形图快速掌握图表利器—echarts">
 <meta name="twitter:description" content="摘要
-    我们所说的路由与路由器其实是一个道理，通过一个入口接受请求，然后通过统一资源定位符（URL）匹配规则将请求分发到不同的地方。
-具体到一些主流框架上面，比如基于PHP的laravel、thinkphp，基于node.js的Express等，Router模块会配合Http模块分析请求， 并且按照一定规则解析去匹配路由，然后使用调度模块使逻辑调到某块代码（通常是控制器），最后返回响应(Re">
+    echart官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。">
+<meta name="twitter:image" content="http://ohi217i4w.bkt.clouddn.com/blog/images/echart-demo1.pngechart-demo1.png">
 
 
 
@@ -129,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/12/路由/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/13/echart/"/>
 
 
 
 
 
-  <title> 两分钟学懂路由 | 原子酱 </title>
+  <title> 从环形图快速掌握图表利器—echarts | 原子酱 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -286,7 +285,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/12/路由/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/13/echart/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="原子酱">
@@ -310,7 +309,7 @@
             
             
               
-                两分钟学懂路由
+                从环形图快速掌握图表利器—echarts
               
             
           </h1>
@@ -323,8 +322,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-12T09:56:21+08:00">
-                2016-12-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-13T10:01:44+08:00">
+                2017-01-13
               </time>
             
 
@@ -342,8 +341,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/名词精选/" itemprop="url" rel="index">
-                    <span itemprop="name">名词精选</span>
+                  <a href="/categories/工具箱/" itemprop="url" rel="index">
+                    <span itemprop="name">工具箱</span>
                   </a>
                 </span>
 
@@ -353,8 +352,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/名词精选/路由/" itemprop="url" rel="index">
-                    <span itemprop="name">路由</span>
+                  <a href="/categories/工具箱/插件/" itemprop="url" rel="index">
+                    <span itemprop="name">插件</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具箱/插件/echart/" itemprop="url" rel="index">
+                    <span itemprop="name">echart</span>
                   </a>
                 </span>
 
@@ -368,8 +378,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/12/路由/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/路由/" itemprop="commentCount"></span>
+                <a href="/2017/01/13/echart/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/13/echart/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,7 +389,7 @@
 
           
           
-             <span id="/2016/12/12/路由/" class="leancloud_visitors" data-flag-title="两分钟学懂路由">
+             <span id="/2017/01/13/echart/" class="leancloud_visitors" data-flag-title="从环形图快速掌握图表利器—echarts">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -402,29 +412,92 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://ohi217i4w.bkt.clouddn.com/blog/images/echart-demo1.pngechart-demo1.png" rel="gallery_cixv6bu6g000bxkptxjx79zan"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://ohi217i4w.bkt.clouddn.com/blog/images/echart-demo1.pngechart-demo1.png" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
         <h2 id="摘要">摘要</h2>
-<p>    我们所说的路由与路由器其实是一个道理，通过一个入口接受请求，然后通过统一资源定位符（URL）匹配规则将请求分发到不同的地方。<br>
-具体到一些主流框架上面，比如基于PHP的<strong>laravel</strong>、<strong>thinkphp</strong>，基于node.js的<strong>Express</strong>等，Router模块会配合Http模块分析请求， 并且按照一定规则解析去匹配路由，然后使用调度模块使逻辑调到某块代码（通常是控制器），最后返回响应(Response)。<br>
-所以这种<strong>路由</strong>与家中上网使用的<strong>路由器</strong>，有异曲同工之妙。</p>
+<p>    echart官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。</p>
 <a id="more"></a>
 <!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
 <!-- 其中 class="full-image" 是必须的 -->
 <!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
 <img src="/image-url" class="full-image" />
 </a>-->
-<!--more-->
-<h2 id="什么是路由">什么是路由</h2>
-<blockquote>
-<p>路由本身的定义就是信息传递者，有请求指路的意思。</p>
-</blockquote>
-<p>当我们在浏览器中输入要访问的链接地址，例如：<a href="http://music.163.com/#/user/home?id=92262007" target="_blank" rel="external">http://music.163.com/#/user/home?id=92262007</a> （我的网易云音乐ID） 回车之后他将展示相对应的页面，当改动id的参数时，我们可以看到不同的用户主页。<br>
-在这个过程中，路由机制将特定形式的URL结构分解成系统对应的参数，我们可以对比<strong>文件夹路径地址</strong>进行学习，其中：</p>
+<h2 id="简介">简介</h2>
+<p>    echart作为现在主流的web图表控件之一，基于html5，以丰富的图表类型和良好的兼容性深受大众喜爱，当然还有一点，与hightchart相比，echarts不收费哟😝。</p>
+<h3 id="echart相关链接">echart相关链接</h3>
+<p><a href="http://echarts.baidu.com/echarts2/doc/example.html" target="_blank">echarts实例</a><br>
+<a href="http://echarts.baidu.com/echarts2/doc/doc.html" target="_blank">echarts文档</a></p>
+<h2 id="使用方式">使用方式</h2>
+<h3 id="放置图表的div">放置图表的div</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"chart"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="初始化图表">初始化图表</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 基于准备好的dom，初始化echarts图表</span></div><div class="line"><span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'chart'</span>));</div></pre></td></tr></table></figure>
+<p>NOTE:为了减少复杂的配置文件，我们直接引入echarts-all.js文件，可以满足大部分需求。</p>
+<h3 id="设置option">设置option</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">option = &#123;</div><div class="line">	<span class="attr">tooltip</span>: &#123;</div><div class="line">		<span class="attr">trigger</span>: <span class="string">'item'</span>,</div><div class="line">		<span class="attr">formatter</span>: <span class="string">"&#123;b&#125;&lt;br/&gt;&#123;c&#125;次 (&#123;d&#125;%)"</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">color</span>: [<span class="string">'#2659a0'</span>, <span class="string">'#ebaa01'</span>, <span class="string">'#dd452c'</span>, <span class="string">'#5d814e'</span>],</div><div class="line">	<span class="attr">series</span>: [</div><div class="line">		&#123;</div><div class="line">			<span class="attr">name</span>: <span class="string">'高开'</span>,</div><div class="line">			<span class="attr">type</span>: <span class="string">'pie'</span>,</div><div class="line">			<span class="attr">radius</span>: [<span class="string">'38%'</span>, <span class="string">'60%'</span>],</div><div class="line">			<span class="attr">startAngle</span>: <span class="number">90</span>,</div><div class="line">			<span class="attr">itemStyle</span>: &#123;</div><div class="line">				<span class="attr">normal</span>: &#123;</div><div class="line">					<span class="attr">label</span>: &#123;</div><div class="line">						<span class="attr">show</span>: <span class="literal">true</span>,</div><div class="line">						<span class="attr">formatter</span>: <span class="string">"&#123;d&#125;%"</span></div><div class="line">					&#125;,</div><div class="line">					<span class="attr">labelLine</span>: &#123;</div><div class="line">						<span class="attr">show</span>: <span class="literal">true</span></div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;,</div><div class="line">			<span class="attr">data</span>: [</div><div class="line">				&#123;<span class="attr">value</span>: <span class="number">25</span>, <span class="attr">name</span>: <span class="string">'高开0～3%'</span>, <span class="attr">itemStyle</span>: &#123;<span class="attr">normal</span>: &#123;<span class="attr">color</span>: <span class="string">'#2659a0'</span>, <span class="attr">label</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;, <span class="attr">labelLine</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;&#125;&#125;&#125;,</div><div class="line">				&#123;<span class="attr">value</span>: <span class="number">25</span>, <span class="attr">name</span>: <span class="string">'高开3～7%'</span>, <span class="attr">itemStyle</span>: &#123;<span class="attr">normal</span>: &#123;<span class="attr">color</span>: <span class="string">'#ebaa01'</span>, <span class="attr">label</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;, <span class="attr">labelLine</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;&#125;&#125;&#125;,</div><div class="line">				&#123;<span class="attr">value</span>: <span class="number">25</span>, <span class="attr">name</span>: <span class="string">'高开7%以上'</span>, <span class="attr">itemStyle</span>: &#123;<span class="attr">normal</span>: &#123;<span class="attr">color</span>: <span class="string">'#dd452c'</span>, <span class="attr">label</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;, <span class="attr">labelLine</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;&#125;&#125;&#125;,</div><div class="line">				&#123;<span class="attr">value</span>: <span class="number">25</span>, <span class="attr">name</span>: <span class="string">'低开'</span>, <span class="attr">itemStyle</span>: &#123;<span class="attr">normal</span>: &#123;<span class="attr">color</span>: <span class="string">'#5d814e'</span>, <span class="attr">label</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;, <span class="attr">labelLine</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;&#125;&#125;&#125;</div><div class="line">			]</div><div class="line">		&#125;</div><div class="line">	]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>NOTE: Array用<code>[]</code>表示，object用<code>{}</code>表示。</p>
+<h3 id="加载数据">加载数据</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为echarts对象加载数据 </span></div><div class="line">myChart.setOption(option);</div></pre></td></tr></table></figure>
+<h2 id="设置项">设置项</h2>
+<p>到这我们的环状图就已经出来了，下面就对选项进行说明。</p>
+<h3 id="option">option</h3>
+<p>图表选项，包含图表实例任何可配置选项： <strong>公共选项</strong> ， <strong>组件选项</strong> ， <strong>数据选项</strong><br>
+常用的有：</p>
 <ul>
-<li><a href="http://music.163.com" target="_blank" rel="external">http://music.163.com</a>  ：域名，首页地址</li>
-<li>/#  ：可起反爬虫作用，详细解释可参考<a href=""></a></li>
+<li>公共选项
+<ul>
+<li>color：表示系列的颜色，可用数组表示，当系列数量个数比颜色列表长度大时将循环选取，上述代码中表示环状百分比图各块的颜色。</li>
+<li></li>
 </ul>
+</li>
+<li>组件选项
+<ul>
+<li>tooltip：鼠标悬浮交互时的信息提示，即实例图中的黑色浮窗</li>
+<li>legend： 图表块提示，即实例图中最下方的小提示块</li>
+</ul>
+</li>
+<li>数据选项
+<ul>
+<li>series：与数据相关，数组中每一项代表一个系列的特殊选项及数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="tooltip">tooltip</h3>
+<p>提示框，鼠标悬浮交互时的信息提示。</p>
+<ul>
+<li>trigger：触发类型，默认数据触发，可选为：‘item’ | ‘axis’，实例中为<code>item</code>多用于环状图，<code>axis</code>用于坐标图;</li>
+<li>formatter: 内容格式器, 有{a}{b}{c}{d}，实例中&quot;{b}&lt;br/&gt;{c}次 ({d}%)&quot;分别表示： series.data[]中的<code>name</code>值、series.data[]中的<code>value</code>值、环状图每部分的比例</li>
+</ul>
+<h3 id="series">series</h3>
+<ul>
+<li>type:<br>
+图表类型，必要参数！如为空或不支持类型，则该系列数据不被显示。可选为：<br>
+‘line’（折线图） | ‘bar’（柱状图） | ‘scatter’（散点图） | ‘k’（K线图）<br>
+‘pie’（饼图） | ‘radar’（雷达图） | ‘chord’（和弦图） | ‘force’（力导向布局图） | ‘map’（地图）</li>
+<li>data：<a href="http://echarts.baidu.com/echarts2/doc/doc.html#SeriesData" target="_blank" rel="external">系列中的数据内容数组</a></li>
+<li>itemStyle： 标注图形样式属性，通用选项，实例图中为指示线上的内容，在series中有设置（全局），在data中也有设置（为了让当数据为零时隐藏指示线）</li>
+</ul>
+<h2 id="小技巧-举一反三">小技巧-举一反三</h2>
+<h3 id="当数据为零时隐藏指示线">当数据为零时隐藏指示线</h3>
+<p>方法一：遍历循环填充data，当数据项value值为零时continue跳过此次循环<br>
+方法二：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> opt = option.series[<span class="number">0</span>];</div><div class="line">lineHide(opt);</div><div class="line"></div><div class="line"><span class="comment">//数据为零时隐藏线段</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">lineHide</span>(<span class="params">opt</span>) </span>&#123;</div><div class="line">	jQuery.each(opt.data, <span class="function"><span class="keyword">function</span> (<span class="params">i, item</span>) </span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(item.value);</div><div class="line">		<span class="keyword">if</span> (item.value == <span class="number">0</span>) &#123;</div><div class="line">			item.itemStyle.normal.labelLine.show = <span class="literal">false</span>;</div><div class="line">			item.itemStyle.normal.label.show = <span class="literal">false</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -448,7 +521,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           
         </div>
       
@@ -457,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/09/ALTER命令/" rel="next" title="ALTER TABLE, 你真的学好了吗？">
-                <i class="fa fa-chevron-left"></i> ALTER TABLE, 你真的学好了吗？
+              <a href="/2017/01/04/排序/" rel="next" title="排行榜：根据不同字段进行排序">
+                <i class="fa fa-chevron-left"></i> 排行榜：根据不同字段进行排序
               </a>
             
           </div>
@@ -466,10 +539,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/20/hexo-bugs/" rel="prev" title="hexo常见错误及其解决方法">
-                hexo常见错误及其解决方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -495,8 +564,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/12/路由/"
-           data-title="两分钟学懂路由" data-url="http://yoursite.com/2016/12/12/路由/">
+      <div class="ds-thread" data-thread-key="2017/01/13/echart/"
+           data-title="从环形图快速掌握图表利器—echarts" data-url="http://yoursite.com/2017/01/13/echart/">
       </div>
     
   </div>
@@ -620,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是路由"><span class="nav-number">2.</span> <span class="nav-text">什么是路由</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#echart相关链接"><span class="nav-number">2.1.</span> <span class="nav-text">echart相关链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方式"><span class="nav-number">3.</span> <span class="nav-text">使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#放置图表的div"><span class="nav-number">3.1.</span> <span class="nav-text">放置图表的div</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化图表"><span class="nav-number">3.2.</span> <span class="nav-text">初始化图表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置option"><span class="nav-number">3.3.</span> <span class="nav-text">设置option</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载数据"><span class="nav-number">3.4.</span> <span class="nav-text">加载数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置项"><span class="nav-number">4.</span> <span class="nav-text">设置项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#option"><span class="nav-number">4.1.</span> <span class="nav-text">option</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tooltip"><span class="nav-number">4.2.</span> <span class="nav-text">tooltip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#series"><span class="nav-number">4.3.</span> <span class="nav-text">series</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧-举一反三"><span class="nav-number">5.</span> <span class="nav-text">小技巧-举一反三</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#当数据为零时隐藏指示线"><span class="nav-number">5.1.</span> <span class="nav-text">当数据为零时隐藏指示线</span></a></li></ol></li></ol></div>
             
 
           </div>

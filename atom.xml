@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-04T06:17:08.826Z</updated>
+  <updated>2017-01-13T05:10:53.161Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,101 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从环形图快速掌握图表利器—echarts</title>
+    <link href="http://yoursite.com/2017/01/13/echart/"/>
+    <id>http://yoursite.com/2017/01/13/echart/</id>
+    <published>2017-01-13T02:01:44.000Z</published>
+    <updated>2017-01-13T05:10:53.161Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
+<p>    echart官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。</p>
+<a id="more"></a>
+<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
+<!-- 其中 class="full-image" 是必须的 -->
+<!--<a href="http://img.hb.aicdn.com/2495276fbb11a92d56901a0766fb3b53f154b5041c889c-IwBZY3_fw658" target="_blank">
+<img src="/image-url" class="full-image" />
+</a>-->
+<h2 id="简介">简介</h2>
+<p>    echart作为现在主流的web图表控件之一，基于html5，以丰富的图表类型和良好的兼容性深受大众喜爱，当然还有一点，与hightchart相比，echarts不收费哟😝。</p>
+<h3 id="echart相关链接">echart相关链接</h3>
+<p><a href="http://echarts.baidu.com/echarts2/doc/example.html" target="_blank">echarts实例</a><br>
+<a href="http://echarts.baidu.com/echarts2/doc/doc.html" target="_blank">echarts文档</a></p>
+<h2 id="使用方式">使用方式</h2>
+<h3 id="放置图表的div">放置图表的div</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"chart"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="初始化图表">初始化图表</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 基于准备好的dom，初始化echarts图表</span></div><div class="line"><span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'chart'</span>));</div></pre></td></tr></table></figure>
+<p>NOTE:为了减少复杂的配置文件，我们直接引入echarts-all.js文件，可以满足大部分需求。</p>
+<h3 id="设置option">设置option</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">option = &#123;</div><div class="line">	<span class="attr">tooltip</span>: &#123;</div><div class="line">		<span class="attr">trigger</span>: <span class="string">'item'</span>,</div><div class="line">		<span class="attr">formatter</span>: <span class="string">"&#123;b&#125;&lt;br/&gt;&#123;c&#125;次 (&#123;d&#125;%)"</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">color</span>: [<span class="string">'#2659a0'</span>, <span class="string">'#ebaa01'</span>, <span class="string">'#dd452c'</span>, <span class="string">'#5d814e'</span>],</div><div class="line">	<span class="attr">series</span>: [</div><div class="line">		&#123;</div><div class="line">			<span class="attr">name</span>: <span class="string">'高开'</span>,</div><div class="line">			<span class="attr">type</span>: <span class="string">'pie'</span>,</div><div class="line">			<span class="attr">radius</span>: [<span class="string">'38%'</span>, <span class="string">'60%'</span>],</div><div class="line">			<span class="attr">startAngle</span>: <span class="number">90</span>,</div><div class="line">			<span class="attr">itemStyle</span>: &#123;</div><div class="line">				<span class="attr">normal</span>: &#123;</div><div class="line">					<span class="attr">label</span>: &#123;</div><div class="line">						<span class="attr">show</span>: <span class="literal">true</span>,</div><div class="line">						<span class="attr">formatter</span>: <span class="string">"&#123;d&#125;%"</span></div><div class="line">					&#125;,</div><div class="line">					<span class="attr">labelLine</span>: &#123;</div><div class="line">						<span class="attr">show</span>: <span class="literal">true</span></div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;,</div><div class="line">			<span class="attr">data</span>: [</div><div class="line">				&#123;<span class="attr">value</span>: <span class="number">25</span>, <span class="attr">name</span>: <span class="string">'高开0～3%'</span>, <span class="attr">itemStyle</span>: &#123;<span class="attr">normal</span>: &#123;<span class="attr">color</span>: <span class="string">'#2659a0'</span>, <span class="attr">label</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;, <span class="attr">labelLine</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;&#125;&#125;&#125;,</div><div class="line">				&#123;<span class="attr">value</span>: <span class="number">25</span>, <span class="attr">name</span>: <span class="string">'高开3～7%'</span>, <span class="attr">itemStyle</span>: &#123;<span class="attr">normal</span>: &#123;<span class="attr">color</span>: <span class="string">'#ebaa01'</span>, <span class="attr">label</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;, <span class="attr">labelLine</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;&#125;&#125;&#125;,</div><div class="line">				&#123;<span class="attr">value</span>: <span class="number">25</span>, <span class="attr">name</span>: <span class="string">'高开7%以上'</span>, <span class="attr">itemStyle</span>: &#123;<span class="attr">normal</span>: &#123;<span class="attr">color</span>: <span class="string">'#dd452c'</span>, <span class="attr">label</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;, <span class="attr">labelLine</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;&#125;&#125;&#125;,</div><div class="line">				&#123;<span class="attr">value</span>: <span class="number">25</span>, <span class="attr">name</span>: <span class="string">'低开'</span>, <span class="attr">itemStyle</span>: &#123;<span class="attr">normal</span>: &#123;<span class="attr">color</span>: <span class="string">'#5d814e'</span>, <span class="attr">label</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;, <span class="attr">labelLine</span>: &#123;<span class="attr">show</span>: <span class="literal">true</span>&#125;&#125;&#125;&#125;</div><div class="line">			]</div><div class="line">		&#125;</div><div class="line">	]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>NOTE: Array用<code>[]</code>表示，object用<code>{}</code>表示。</p>
+<h3 id="加载数据">加载数据</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为echarts对象加载数据 </span></div><div class="line">myChart.setOption(option);</div></pre></td></tr></table></figure>
+<h2 id="设置项">设置项</h2>
+<p>到这我们的环状图就已经出来了，下面就对选项进行说明。</p>
+<h3 id="option">option</h3>
+<p>图表选项，包含图表实例任何可配置选项： <strong>公共选项</strong> ， <strong>组件选项</strong> ， <strong>数据选项</strong><br>
+常用的有：</p>
+<ul>
+<li>公共选项
+<ul>
+<li>color：表示系列的颜色，可用数组表示，当系列数量个数比颜色列表长度大时将循环选取，上述代码中表示环状百分比图各块的颜色。</li>
+<li></li>
+</ul>
+</li>
+<li>组件选项
+<ul>
+<li>tooltip：鼠标悬浮交互时的信息提示，即实例图中的黑色浮窗</li>
+<li>legend： 图表块提示，即实例图中最下方的小提示块</li>
+</ul>
+</li>
+<li>数据选项
+<ul>
+<li>series：与数据相关，数组中每一项代表一个系列的特殊选项及数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="tooltip">tooltip</h3>
+<p>提示框，鼠标悬浮交互时的信息提示。</p>
+<ul>
+<li>trigger：触发类型，默认数据触发，可选为：‘item’ | ‘axis’，实例中为<code>item</code>多用于环状图，<code>axis</code>用于坐标图;</li>
+<li>formatter: 内容格式器, 有{a}{b}{c}{d}，实例中&quot;{b}&lt;br/&gt;{c}次 ({d}%)&quot;分别表示： series.data[]中的<code>name</code>值、series.data[]中的<code>value</code>值、环状图每部分的比例</li>
+</ul>
+<h3 id="series">series</h3>
+<ul>
+<li>type:<br>
+图表类型，必要参数！如为空或不支持类型，则该系列数据不被显示。可选为：<br>
+‘line’（折线图） | ‘bar’（柱状图） | ‘scatter’（散点图） | ‘k’（K线图）<br>
+‘pie’（饼图） | ‘radar’（雷达图） | ‘chord’（和弦图） | ‘force’（力导向布局图） | ‘map’（地图）</li>
+<li>data：<a href="http://echarts.baidu.com/echarts2/doc/doc.html#SeriesData" target="_blank" rel="external">系列中的数据内容数组</a></li>
+<li>itemStyle： 标注图形样式属性，通用选项，实例图中为指示线上的内容，在series中有设置（全局），在data中也有设置（为了让当数据为零时隐藏指示线）</li>
+</ul>
+<h2 id="小技巧-举一反三">小技巧-举一反三</h2>
+<h3 id="当数据为零时隐藏指示线">当数据为零时隐藏指示线</h3>
+<p>方法一：遍历循环填充data，当数据项value值为零时continue跳过此次循环<br>
+方法二：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> opt = option.series[<span class="number">0</span>];</div><div class="line">lineHide(opt);</div><div class="line"></div><div class="line"><span class="comment">//数据为零时隐藏线段</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">lineHide</span>(<span class="params">opt</span>) </span>&#123;</div><div class="line">	jQuery.each(opt.data, <span class="function"><span class="keyword">function</span> (<span class="params">i, item</span>) </span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(item.value);</div><div class="line">		<span class="keyword">if</span> (item.value == <span class="number">0</span>) &#123;</div><div class="line">			item.itemStyle.normal.labelLine.show = <span class="literal">false</span>;</div><div class="line">			item.itemStyle.normal.label.show = <span class="literal">false</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
+&lt;p&gt;    echart官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具箱" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7%E7%AE%B1/"/>
+    
+      <category term="插件" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E6%8F%92%E4%BB%B6/"/>
+    
+      <category term="echart" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7%E7%AE%B1/%E6%8F%92%E4%BB%B6/echart/"/>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>排行榜：根据不同字段进行排序</title>
