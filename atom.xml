@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-13T05:10:53.161Z</updated>
+  <updated>2017-02-15T09:58:21.366Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,14 +16,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>用redis进行搜索优化的两种方法</title>
+    <link href="http://yoursite.com/2017/02/15/redis%E6%90%9C%E7%B4%A2/"/>
+    <id>http://yoursite.com/2017/02/15/redis搜索/</id>
+    <published>2017-02-15T08:16:53.000Z</published>
+    <updated>2017-02-15T09:58:21.366Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
+<p>    为了确保安全与速度，除了增、删、改之外，我们通常不直接对数据库进行操作，而是利用redis或者mencache等缓存机制获取数据。如何使用redis进行搜索呢？本文通过<code>姓名/拼音首字母搜索人物基本信息</code>实例叙述两种redis搜索方式，适用的情况也有所不同。</p>
+<a id="more"></a>
+<h2 id="环境">环境</h2>
+<p>LNMP/Redis</p>
+<h2 id="方法一">方法一</h2>
+<p>将所有人物信息存入一个string格式的key(user_all)中，搜索时遍历查找key的内容。</p>
+<p>实例中将人物的id(uid)、姓名(name)、拼音首字母(spell)等信息存入user_all键。</p>
+<p>代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">search</span><span class="params">()</span> </span>&#123;</div><div class="line">	$con = $_POST[<span class="string">'con'</span>]; <span class="comment">//接收搜索信息</span></div><div class="line">	</div><div class="line">	<span class="comment">//连接本地的 Redis 服务</span></div><div class="line">	$redis = <span class="keyword">new</span> Redis();</div><div class="line">	$redis-&gt;connect(<span class="string">'127.0.0.1'</span>, <span class="number">6379</span>);</div><div class="line">	</div><div class="line">	$ret = json_decode($redis-&gt;get(<span class="string">'user_all'</span>), <span class="keyword">TRUE</span>);<span class="comment">//获取user_all所有数据</span></div><div class="line"></div><div class="line">	<span class="keyword">if</span> (<span class="keyword">empty</span>($ret)) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	$searchInfos = <span class="keyword">array</span>();</div><div class="line">	</div><div class="line">	<span class="comment">//从第一位往后匹配</span></div><div class="line">	<span class="keyword">foreach</span> ($ret <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">		<span class="keyword">if</span> (strpos($v[<span class="string">'name'</span>], $con) === <span class="number">0</span> || strpos($v[<span class="string">'spell'</span>], strtoupper($con)) === <span class="number">0</span>) &#123;</div><div class="line">			$searchInfos[] = $v;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> ($searchInfos) &#123;</div><div class="line">		<span class="keyword">return</span> $searchInfos;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>NOTE:使用<code>get(key)</code>的方式获取到的数据格式可能是object(stdClass)，遍历时需要用访问对象的方式获取数据，因此使用json_decode($content, TRUE)函数将其变为array格式。</p>
+<h2 id="方法二">方法二</h2>
+<p>将每个人物的信息分别存入string格式的key(以prefix_name_uid,prefix_spell_uid的形式，如user_路飞_001，user_LF_001)中，通过keys()对键名进行模糊查询，以获取人物信息。</p>
+<p>代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">search</span><span class="params">()</span> </span>&#123;</div><div class="line">	$con = $_POST[<span class="string">'con'</span>]; <span class="comment">//接收搜索信息</span></div><div class="line">	</div><div class="line">	<span class="comment">//连接本地的 Redis 服务</span></div><div class="line">	$redis = <span class="keyword">new</span> Redis();</div><div class="line">	$redis-&gt;connect(<span class="string">'127.0.0.1'</span>, <span class="number">6379</span>);</div><div class="line">	</div><div class="line">	$ret = $redis-&gt;keys(<span class="string">'user_'</span> . $con . <span class="string">'*'</span>);<span class="comment">//获取所有匹配数据</span></div><div class="line"></div><div class="line">	<span class="keyword">if</span> (<span class="keyword">empty</span>($ret)) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	$searchInfos = <span class="keyword">array</span>();</div><div class="line">	</div><div class="line">	<span class="keyword">foreach</span> ($ret <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">		$searchInfos[] = $redis-&gt;get($v);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> ($searchInfos) &#123;</div><div class="line">		<span class="keyword">return</span> $searchInfos;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="两种方法比较">两种方法比较</h2>
+<p>两种方式均能获得搜索结果，也都有各自的优缺点：</p>
+<p>第一种方式，进行增加、删除、修改操作时都需进行数据库查询，获取所有人物信息，添加到user_all键中，查询时直接进行字符串匹配；<br>
+第二种方式，需要对redis键进行全部查询操作，不适用于键特别多的情况。</p>
+<h2 id="其他">其他</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//除掉字符串中的标点符号</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">spellReplace</span><span class="params">($spell)</span> </span>&#123;</div><div class="line">	$char = <span class="string">"。、！？：；﹑•＂…‘’“”〝〞∕¦‖—　〈〉﹞﹝「」‹›〖〗】【»«』『〕〔》《﹐¸﹕︰﹔！¡？¿﹖﹌﹏﹋＇´ˊˋ―﹫︳︴¯＿￣﹢﹦﹤‐­˜﹟﹩﹠﹪﹡﹨﹍﹉﹎﹊ˇ︵︶︷︸︹︿﹀︺︽︾ˉ﹁﹂﹃﹄︻︼（）# #"</span>;</div><div class="line">	$pattern = <span class="keyword">array</span>(</div><div class="line">	    <span class="string">"/[[:punct:]]/i"</span>, <span class="comment">//英文标点符号</span></div><div class="line">	    <span class="string">'/['</span> . $char . <span class="string">']/u'</span>, <span class="comment">//中文标点符号</span></div><div class="line">	    <span class="string">'/[ ]&#123;2,&#125;/'</span></div><div class="line">	);</div><div class="line">	$str = preg_replace($pattern, <span class="string">''</span>, $spell);</div><div class="line">	<span class="keyword">return</span> $str;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//获取拼音首字母，如yuan zi jiang =&gt;YZJ</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">spellChar</span><span class="params">($spell)</span> </span>&#123;</div><div class="line">	$new_name = <span class="string">''</span>;</div><div class="line">	$nword = explode(<span class="string">" "</span>, $spell);</div><div class="line">	<span class="keyword">foreach</span> ($nword <span class="keyword">as</span> $letter) &#123;</div><div class="line">		$new_name .= $letter&#123;<span class="number">0</span>&#125;;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> strtoupper($new_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
+&lt;p&gt;    为了确保安全与速度，除了增、删、改之外，我们通常不直接对数据库进行操作，而是利用redis或者mencache等缓存机制获取数据。如何使用redis进行搜索呢？本文通过&lt;code&gt;姓名/拼音首字母搜索人物基本信息&lt;/code&gt;实例叙述两种redis搜索方式，适用的情况也有所不同。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目开发" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="缓存机制" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/"/>
+    
+    
+      <category term="Redis" scheme="http://yoursite.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从环形图快速掌握图表利器—echarts</title>
     <link href="http://yoursite.com/2017/01/13/echart/"/>
     <id>http://yoursite.com/2017/01/13/echart/</id>
     <published>2017-01-13T02:01:44.000Z</published>
-    <updated>2017-01-13T05:10:53.161Z</updated>
+    <updated>2017-01-13T05:34:18.760Z</updated>
     
     <content type="html"><![CDATA[<h2 id="摘要">摘要</h2>
-<p>    echart官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。</p>
+<p>    echarts官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。</p>
 <a id="more"></a>
 <!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
 <!-- 其中 class="full-image" 是必须的 -->
@@ -95,7 +140,7 @@
     <summary type="html">
     
       &lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
-&lt;p&gt;    echart官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。&lt;/p&gt;
+&lt;p&gt;    echarts官方文档非常完善，对每个设置项都有明确的说明，在使用时我们可以查文档制作我们想要的效果，这里总结了一些最常用的设置项以及一些小技巧（echarts 2.0），欢迎大家补充。&lt;/p&gt;
     
     </summary>
     
@@ -653,7 +698,7 @@
     <link href="http://yoursite.com/2016/11/29/hello-world/"/>
     <id>http://yoursite.com/2016/11/29/hello-world/</id>
     <published>2016-11-29T06:34:33.278Z</published>
-    <updated>2016-12-06T09:15:59.252Z</updated>
+    <updated>2017-02-15T08:27:52.480Z</updated>
     
     <content type="html"><![CDATA[<p>折腾了这么久终于找到一个喜欢的博客主题了，那就是Hexo-NexT,Hexo基于node.js,之前自己也试着用node仿了一个简书的博客主题，支持多人登录。<br>
 完善之后再放出来遛遛了。废话不多说，多看书，写好文。</p>
@@ -663,7 +708,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="启动服务器">启动服务器</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server p -5000</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server -p 5000</div></pre></td></tr></table></figure>
 <p>默认端口为4000<br>
 More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
 <h3 id="生成静态文件">生成静态文件</h3>
