@@ -1682,7 +1682,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #863bff;
+  background: #7f8b58;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2466,7 +2466,7 @@ body {
   }
 }
 .header-inner {
-  position: fixed;
+  position: absolute;
   top: 0;
   overflow: hidden;
   padding: 0;
@@ -2703,7 +2703,7 @@ body {
   width: 240px;
   color: #555;
   background: #fff;
-  position: fixed;
+  position: absolute;
 }
 .sidebar-inner.affix {
   position: fixed;
