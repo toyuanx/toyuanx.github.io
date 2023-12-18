@@ -19,6 +19,66 @@
       </tags>
   </entry>
   <entry>
+    <title>json与gob</title>
+    <url>/2023/12/18/json%E4%B8%8Egob/</url>
+    <content><![CDATA[<p>在 Go 语言中，JSON（JavaScript Object Notation）和 GOB（Go Binary）是两种常用的序列化和反序列化数据的格式。<code>encoding/json</code>想必大家都不陌生，<code>encoding/gob</code>在常规 golang 的开发项目中使用频率就低了很多，两者的区别是什么？使用场景又是什么？一起来学习下。</p>
+<h1 id="json-与-gob-的区别"><a href="#json-与-gob-的区别" class="headerlink" title="json 与 gob 的区别"></a>json 与 gob 的区别</h1><table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>JSON</th>
+<th>GOB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可读性</td>
+<td>JSON 是一种文本格式，易于阅读和理解。它使用键值对的形式表示数据，并使用大括号和方括号来表示对象和数组。</td>
+<td>GOB 是一种二进制格式，不可读，主要用于在 Go 程序之间高效地传输和存储数据。</td>
+</tr>
+<tr>
+<td>兼容性</td>
+<td>JSON 是一种通用的数据交换格式，可以被多种编程语言解析和生成。</td>
+<td>GOB 是 Go 语言特有的格式，只能在 Go 程序之间进行序列化和反序列化。</td>
+</tr>
+<tr>
+<td>数据类型支持</td>
+<td>JSON 支持基本数据类型（如字符串、数字、布尔值）、数组、对象和 null 值。</td>
+<td>GOB 支持 Go 语言的所有数据类型，包括结构体、切片、映射、通道等。</td>
+</tr>
+<tr>
+<td>序列化效率</td>
+<td>JSON 的序列化和反序列化相对较慢，占用较多的存储空间和网络带宽。</td>
+<td>由于 GOB 是二进制格式，相对于 JSON，它在序列化和反序列化过程中更高效，占用更少的存储空间和网络带宽。</td>
+</tr>
+<tr>
+<td>跨语言支持</td>
+<td>由于 JSON 是一种通用格式，可以被多种编程语言解析和生成，因此在不同语言之间进行数据交换更方便。</td>
+<td>GOB 只能在 Go 语言程序之间使用，不适用于跨语言的数据交换。</td>
+</tr>
+</tbody></table>
+<p>总结：JSON 是一种通用的、可读性强的数据交换格式，适用于跨语言的数据交换。而 GOB 是 Go 语言特有的、高效的二进制格式，适用于在 Go 程序之间进行数据传输和存储。选择使用哪种格式取决于你的具体需求和使用场景。</p>
+<h1 id="gob-具体使用场景"><a href="#gob-具体使用场景" class="headerlink" title="gob 具体使用场景"></a>gob 具体使用场景</h1><ol>
+<li><p>Go 程序之间的通信：如果你有多个 Go 程序之间需要进行数据交换，使用 GOB 可以实现高效的序列化和反序列化，减少数据传输的开销。</p>
+</li>
+<li><p>数据持久化：如果你需要将 Go 程序中的数据持久化到磁盘或数据库中，使用 GOB 可以将数据以二进制格式进行存储，占用更少的存储空间，并且读写速度更快。</p>
+</li>
+<li><p>缓存数据：如果你需要将数据缓存在内存中，以提高读取速度，使用 GOB 可以将数据以二进制格式进行序列化，并在需要时快速反序列化，提高缓存的效率。</p>
+</li>
+<li><p>分布式系统：如果你正在构建分布式系统，需要在不同的节点之间传输数据，使用 GOB 可以实现高效的数据传输，减少网络带宽的占用。</p>
+</li>
+<li><p>RPC（远程过程调用）：如果你使用 Go 语言的 RPC 框架进行远程过程调用，GOB 是默认的序列化格式，可以方便地进行数据传输和调用。</p>
+</li>
+</ol>
+<p>总结：GOB 适用于在 Go 程序之间高效地传输和存储数据的场景，特别是在需要高性能和低开销的情况下。</p>
+]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>被碎片化信息包围的我们...</title>
     <url>/2023/12/08/%E8%A2%AB%E7%A2%8E%E7%89%87%E5%8C%96%E4%BF%A1%E6%81%AF%E5%8C%85%E5%9B%B4%E7%9A%84%E6%88%91%E4%BB%AC/</url>
     <content><![CDATA[<p>2023 年，经历过数次微博、抖音的卸载安装操作后，最终我每日<code>临幸</code>的 APP 分成了两个设备群：</p>
