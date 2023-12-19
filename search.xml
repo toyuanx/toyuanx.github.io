@@ -102,4 +102,17 @@
         <tag>随便写写</tag>
       </tags>
   </entry>
+  <entry>
+    <title>【解决】已经添加了秘钥后还报git@github.com: Permission denied (publickey).</title>
+    <url>/2023/12/19/%E5%B7%B2%E7%BB%8F%E6%B7%BB%E5%8A%A0%E4%BA%86%E7%A7%98%E9%92%A5%E5%90%8E%E8%BF%98%E6%8A%A5git-github-com-Permission-denied-publickey/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在更新一些 nvim 依赖时发现偶尔会报：<code>git@github.com: Permission denied (publickey).</code>，但是我已经添加过 github 秘钥配置了，使用 ssh 命令<code>ssh -T git@github.com</code>测试也报同样问题。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/g_id_rsa # g_id_rsa为本机的github秘钥</span><br></pre></td></tr></table></figure>
+
+<p>再使用<code>ssh -T git@github.com</code>测试，成功！</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>已经添加过秘钥但是还报错通常是本机的这个 git 仓库并没有和这个 SSH key 关联上，重新添加一下就好了。</p>
+]]></content>
+      <categories>
+        <category>经验之谈</category>
+      </categories>
+  </entry>
 </search>
