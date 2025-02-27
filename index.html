@@ -86,7 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-作品"><a href="/demo/" rel="section"><i class="fa fa-folder-open fa-fw"></i>作品</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-作品"><a href="/demo/" rel="section"><i class="fa fa-folder-open fa-fw"></i>作品</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -151,7 +151,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -162,7 +162,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -187,6 +187,155 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://toyuanx.github.io/2025/02/27/k8s-%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/19640938?v=3&s=460">
+      <meta itemprop="name" content="原子讲">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="原子讲">
+      <meta itemprop="description" content="Don't repeat yourself.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 原子讲">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/27/k8s-%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">k8s - 基础介绍</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-02-27 15:28:43 / 修改时间：15:29:25" itemprop="dateCreated datePublished" datetime="2025-02-27T15:28:43+08:00">2025-02-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2025/02/27/k8s-%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/02/27/k8s-基础介绍/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Kubernetes（通常缩写为K8s）是一个开源的容器编排平台，旨在自动化容器化应用的部署、扩展和管理。它最初由Google开发，现在由云原生计算基金会（CNCF）维护。以下是Kubernetes的基础介绍：</p>
+<h3 id="1-Kubernetes的核心概念"><a href="#1-Kubernetes的核心概念" class="headerlink" title="1. Kubernetes的核心概念"></a>1. <strong>Kubernetes的核心概念</strong></h3><ul>
+<li><p><strong>容器</strong>：Kubernetes主要用于管理容器化应用，容器是一种轻量级的虚拟化技术，可以在同一操作系统上运行多个独立的应用实例。</p>
+</li>
+<li><p><strong>Pod</strong>：Pod是Kubernetes中最小的可部署单元，通常包含一个或多个紧密相关的容器。Pod中的容器共享网络和存储资源。</p>
+</li>
+<li><p><strong>节点（Node）</strong>：节点是Kubernetes集群中的一个工作机器，可以是物理机或虚拟机。每个节点上运行着一个Kubernetes代理（kubelet）和容器运行时（如Docker）。</p>
+</li>
+<li><p><strong>集群（Cluster）</strong>：集群是由多个节点组成的集合，Kubernetes通过集群来管理和调度容器。</p>
+</li>
+<li><p><strong>控制平面（Control Plane）</strong>：控制平面负责管理集群的状态，包括调度、监控和维护集群的健康。主要组件包括API服务器、调度器、控制管理器和etcd（分布式键值存储）。</p>
+</li>
+</ul>
+<h3 id="2-Kubernetes的主要组件"><a href="#2-Kubernetes的主要组件" class="headerlink" title="2. Kubernetes的主要组件"></a>2. <strong>Kubernetes的主要组件</strong></h3><ul>
+<li><p><strong>API Server</strong>：Kubernetes的核心组件，提供RESTful API接口，所有的操作都通过API Server进行。</p>
+</li>
+<li><p><strong>etcd</strong>：一个高可用的分布式键值存储，用于保存Kubernetes集群的所有数据和状态。</p>
+</li>
+<li><p><strong>Scheduler</strong>：负责将Pod调度到合适的节点上，考虑资源需求、节点负载等因素。</p>
+</li>
+<li><p><strong>Controller Manager</strong>：管理集群的控制循环，确保集群的实际状态与期望状态一致。</p>
+</li>
+<li><p><strong>Kubelet</strong>：运行在每个节点上的代理，负责管理Pod的生命周期，确保容器正常运行。</p>
+</li>
+<li><p><strong>Kube Proxy</strong>：负责网络代理和负载均衡，处理服务的网络请求。</p>
+</li>
+</ul>
+<h3 id="3-Kubernetes的基本资源"><a href="#3-Kubernetes的基本资源" class="headerlink" title="3. Kubernetes的基本资源"></a>3. <strong>Kubernetes的基本资源</strong></h3><ul>
+<li><p><strong>Deployment</strong>：用于管理无状态应用的声明式更新，支持滚动更新和回滚。</p>
+</li>
+<li><p><strong>Service</strong>：定义一组Pod的访问策略，提供负载均衡和服务发现。</p>
+</li>
+<li><p><strong>ConfigMap</strong>：用于存储非机密的配置数据，可以在Pod中使用。</p>
+</li>
+<li><p><strong>Secret</strong>：用于存储敏感信息（如密码、令牌等），以安全的方式提供给Pod。</p>
+</li>
+<li><p><strong>Volume</strong>：用于持久化存储，支持多种存储后端（如NFS、云存储等）。</p>
+</li>
+</ul>
+<h3 id="4-Kubernetes的工作流程"><a href="#4-Kubernetes的工作流程" class="headerlink" title="4. Kubernetes的工作流程"></a>4. <strong>Kubernetes的工作流程</strong></h3><ol>
+<li><p><strong>定义应用</strong>：使用YAML或JSON文件定义应用的期望状态，包括Pod、Service、Deployment等。</p>
+</li>
+<li><p><strong>提交配置</strong>：将定义的配置提交到Kubernetes API Server。</p>
+</li>
+<li><p><strong>调度与部署</strong>：Kubernetes Scheduler根据资源需求和策略将Pod调度到合适的节点上，Kubelet负责在节点上启动和管理容器。</p>
+</li>
+<li><p><strong>监控与自愈</strong>：Kubernetes持续监控集群状态，确保实际状态与期望状态一致。如果某个Pod失败，Kubernetes会自动重启或替换它。</p>
+</li>
+</ol>
+<h3 id="5-Kubernetes的优势"><a href="#5-Kubernetes的优势" class="headerlink" title="5. Kubernetes的优势"></a>5. <strong>Kubernetes的优势</strong></h3><ul>
+<li><p><strong>自动化</strong>：自动化容器的部署、扩展和管理，减少人工干预。</p>
+</li>
+<li><p><strong>可扩展性</strong>：支持水平扩展和负载均衡，能够处理大规模的应用。</p>
+</li>
+<li><p><strong>自愈能力</strong>：自动监控和修复故障，确保应用的高可用性。</p>
+</li>
+<li><p><strong>灵活性</strong>：支持多种云环境和本地部署，适应不同的基础设施。</p>
+</li>
+</ul>
+<h3 id="6-Kubernetes的生态系统"><a href="#6-Kubernetes的生态系统" class="headerlink" title="6. Kubernetes的生态系统"></a>6. <strong>Kubernetes的生态系统</strong></h3><p>Kubernetes有一个丰富的生态系统，包含许多工具和项目，如：</p>
+<ul>
+<li><strong>Helm</strong>：Kubernetes的包管理工具，简化应用的部署和管理。</li>
+<li><strong>Prometheus</strong>：用于监控和告警的开源系统。</li>
+<li><strong>Istio</strong>：服务网格技术，提供微服务间的通信管理和安全性。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Kubernetes是现代云原生应用的核心技术之一，提供了强大的容器编排能力。通过理解Kubernetes的基本概念和组件，开发者和运维人员可以更有效地管理和部署容器化应用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -708,7 +857,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
