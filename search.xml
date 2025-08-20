@@ -61,6 +61,51 @@
       </tags>
   </entry>
   <entry>
+    <title>PHP与jQuery</title>
+    <url>/2016/12/23/PHP%E4%B8%8EjQuery/</url>
+    <content><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>作为一个初入 PHP、偶尔写一点后台管理系统的前端部分的小菜鸟，需要学习的东西真的太多太多。<br>     循序渐进，本月研读了 Pro PHP and jQuery 这本书，印象深刻，所以趁热打铁整理了一些对前后端联调很有用的小 Tips。</p>
+<p>后台向前端传值方式：1、模板输出(smarty); 2、ajax 函数回调；</p>
+<h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p>为了防止 PHP 中的变量符$与jQuery冲突，本文代码中jQuery与正常情况使用jQuery时的$等价。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h3><p>即传送给后端的数据，多数为表单内容。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">jQuery</span>(<span class="string">&#x27;.content&#x27;</span>).<span class="title function_ invoke__">html</span>();  <span class="comment">//获取标签内所有内容，包括html符号等</span></span><br><span class="line"><span class="title function_ invoke__">jQuery</span>(<span class="string">&#x27;.content&#x27;</span>).<span class="title function_ invoke__">text</span>();  <span class="comment">//获取标签内所有文本</span></span><br><span class="line"><span class="title function_ invoke__">jQuery</span>(<span class="string">&#x27;.content&#x27;</span>).<span class="title function_ invoke__">val</span>();  <span class="comment">//获取value值</span></span><br><span class="line"><span class="title function_ invoke__">jQuery</span>(this).<span class="built_in">parent</span>().<span class="title function_ invoke__">find</span>(<span class="string">&#x27;.content&#x27;</span>).<span class="title function_ invoke__">text</span>(); <span class="comment">//在当前元素的父元素中查找content类，并获取文本值</span></span><br><span class="line"><span class="title function_ invoke__">jQuery</span>(this).<span class="title function_ invoke__">attr</span>(<span class="string">&#x27;type&#x27;</span>);  <span class="comment">//获取当前元素type属性的值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="前端数据验证"><a href="#前端数据验证" class="headerlink" title="前端数据验证"></a>前端数据验证</h3><p>为防止前端频繁访问后台，加大服务器压力，前端需进行数据验证。</p>
+<h3 id="空值判断"><a href="#空值判断" class="headerlink" title="空值判断"></a>空值判断</h3><p>手机号、电子邮件等：使用正则表达式验证<br>提醒式验证：如“确定删除”，可以使用 confirm()等方法<br>验证失败可弹出提示或重定位界面。</p>
+<h3 id="ajax-传值"><a href="#ajax-传值" class="headerlink" title="ajax 传值"></a>ajax 传值</h3><p>前端验证成功后就可以向后台请求数据了，jQuery 给我们封装了 ajax 方法，多数操作将是 success 回调函数中完成。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">jQuery.<span class="title function_ invoke__">ajax</span>(&#123;</span><br><span class="line">	<span class="attr">type</span>: <span class="string">&#x27;post&#x27;</span>,	//传值方式，post/get</span><br><span class="line">	<span class="attr">url</span>: <span class="string">&#x27;/gxapi/rank&#x27;</span>,	//请求地址</span><br><span class="line">	<span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>,   //传送数据格式，json是前后端常用传值数据格式</span><br><span class="line">	<span class="attr">data</span>: &#123;<span class="attr">content</span>: content, <span class="attr">type</span>: type&#125;, //要传送的数据值&#123;后端接受字段名称：前端发送字段名称&#125;,通常另两者名称相等。</span><br><span class="line">	<span class="attr">success</span>: <span class="title function_ invoke__">funtion</span> (res) &#123;</span><br><span class="line">		<span class="keyword">if</span>(res.code) &#123;</span><br><span class="line">			<span class="comment">//有数据的操作,多在此更改局部数据</span></span><br><span class="line">			...</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="comment">//请求失败，多为未登录、无数据等</span></span><br><span class="line">			...</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意：1、浏览器可以自动识别 json 数据，web 应用可以不用设置；2、如果涉及移动端，则必须设置 json 格式；3、跨域请求数据需设置 dataType 格式为 jsonp。</p>
+<h2 id="碎片功能"><a href="#碎片功能" class="headerlink" title="碎片功能"></a>碎片功能</h2><h3 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h3><ul>
+<li>点击某元素触发事件，如增加、删除、编辑等。</li>
+</ul>
+<p>通过模板渲染所得的页面，可以直接对 dom 元素进行操作，例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">jQuery</span>(<span class="string">&#x27;.btn&#x27;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">//点击事件后续操作</span></span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通过动态生成得到的界面，操作 dom 元素时需要绑定元素，下面的例子中，list 类是非动态生成的元素，我们将 delete 点击事件绑定到该元素上，例：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">jQuery</span>(<span class="string">&#x27;.list&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;.delete&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">//点击事件后续操作</span></span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其中 click 可以更改为 change、hover 等，在对列表进行操作时常用。另外还有一种方式，适用于 jQuery 版本较低的场景。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">jQuery</span>(<span class="string">&quot;.list&quot;</span>).<span class="title function_">delegate</span>(<span class="string">&quot;.delete&quot;</span>, <span class="string">&quot;click&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">//点击事件后续操作</span></span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，这两个方法的 click 位置不同。</p>
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><ul>
+<li>保留小数点后两位：Number(num).toFixed(2)</li>
+<li>遍历：可用于批量操作</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> jQuery.<span class="title function_">each</span>(res.<span class="property">data</span>, <span class="keyword">function</span> (<span class="params">i, item</span>) &#123;</span><br><span class="line">	<span class="comment">//批量操作、结合append()生成列表行等</span></span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意：当遍历 dom 元素时一定要注意在遍历前元素已经生成。</p>
+<h2 id="其他小技巧"><a href="#其他小技巧" class="headerlink" title="其他小技巧"></a>其他小技巧</h2><ul>
+<li>前端获取到数据后可以存在 display:none 的标签里，便于以后使用。</li>
+<li>要更改样式最简单的方法还是通过 css，故我们可以通过给元素添加 class 并设置 class 的值来批量更改样式。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>hbase基础学习</title>
     <url>/2023/12/11/hbase%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>项目要求：存储流水信息，通过 ID 查询流水内容。</p>
@@ -148,43 +193,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【解决】已经添加了秘钥后还报git@github.com: Permission denied (publickey).</title>
-    <url>/2023/12/19/%E5%B7%B2%E7%BB%8F%E6%B7%BB%E5%8A%A0%E4%BA%86%E7%A7%98%E9%92%A5%E5%90%8E%E8%BF%98%E6%8A%A5git-github-com-Permission-denied-publickey/</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在更新一些 nvim 依赖时发现偶尔会报：<code>git@github.com: Permission denied (publickey).</code>，但是我已经添加过 github 秘钥配置了，使用 ssh 命令<code>ssh -T git@github.com</code>测试也报同样问题。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/g_id_rsa # g_id_rsa为本机的github秘钥</span><br></pre></td></tr></table></figure>
-
-<p>再使用<code>ssh -T git@github.com</code>测试，成功！</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>已经添加过秘钥但是还报错通常是本机的这个 git 仓库并没有和这个 SSH key 关联上，重新添加一下就好了。</p>
-]]></content>
-      <categories>
-        <category>经验之谈</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>被碎片化信息包围的我们...</title>
-    <url>/2023/12/08/%E8%A2%AB%E7%A2%8E%E7%89%87%E5%8C%96%E4%BF%A1%E6%81%AF%E5%8C%85%E5%9B%B4%E7%9A%84%E6%88%91%E4%BB%AC/</url>
-    <content><![CDATA[<p>2023 年，经历过数次微博、抖音的卸载安装操作后，最终我每日<code>临幸</code>的 APP 分成了两个设备群：</p>
-<ul>
-<li><p>手机：小红书、微博、王者荣耀</p>
-</li>
-<li><p>Pad：抖音</p>
-<p>我很忙，我真的很忙。每天都要给自己洗脑，从睁眼到入睡，无数的内容占据了我的时间，吃饭会看一会、去卫生间看一会，下班回家先摊着刷会抖音，不知不觉时间就从 20:00 跳到了 23:59，你问我这期间获取到了什么消息？答：阿巴阿巴阿巴…..</p>
-<p>相信有这种体验的不止我一个人，为此我们可以做些什么呢？</p>
-<ol>
-<li>找一项日常的事情，坚持一个月。比如：每天背 10 个单词、读一篇好文、锻炼 30 分钟……习惯形成之后，成就感随之而来；</li>
-<li>化碎片信息为整。每天挨个浏览的信息，按照目前大部分 APP 都有的推荐算法逻辑，大多会分为几类，对于我来说便是：摄影、萌宠、穿搭以及美食这几个大类，在结束一天的碎片化信息获取之后，我将使用思维导图的方式，把有意义的内容记录下来，太过重复的内容则使用 APP 自身的<code>不感兴趣</code>方式挪出我的推荐池，过滤电子垃圾；</li>
-<li>主动检索。碎片化信息对我思维能力、记忆能力的影响很大，多采用主动出击的方式，了解自己需要的内容，避免被动的接收信息导致大脑不断刷新内存；</li>
-<li>多接触现实生活，比如有意义有主题的社交、多参与拥抱大自然活动，从外部汲取能量。</li>
-</ol>
-<p>光阴似箭，日月如梭真是老生常谈了，现在到退休还有好几十年，希望多做一些有意义的事情吧！</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>随便写写</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mysql binlog 基础知识</title>
     <url>/2025/08/12/mysql-binlog-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<p>在 MySQL 数据库中，二进制日志（binary log，通常简称为 binlog）是用于记录所有更改数据库内容的事件的日志文件。它可以用来进行数据恢复、数据复制和审计等。</p>
@@ -240,49 +248,17 @@
       </tags>
   </entry>
   <entry>
-    <title>PHP与jQuery</title>
-    <url>/2016/12/23/PHP%E4%B8%8EjQuery/</url>
-    <content><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>作为一个初入 PHP、偶尔写一点后台管理系统的前端部分的小菜鸟，需要学习的东西真的太多太多。<br>     循序渐进，本月研读了 Pro PHP and jQuery 这本书，印象深刻，所以趁热打铁整理了一些对前后端联调很有用的小 Tips。</p>
-<p>后台向前端传值方式：1、模板输出(smarty); 2、ajax 函数回调；</p>
-<h2 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h2><p>为了防止 PHP 中的变量符$与jQuery冲突，本文代码中jQuery与正常情况使用jQuery时的$等价。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h3><p>即传送给后端的数据，多数为表单内容。</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">jQuery</span>(<span class="string">&#x27;.content&#x27;</span>).<span class="title function_ invoke__">html</span>();  <span class="comment">//获取标签内所有内容，包括html符号等</span></span><br><span class="line"><span class="title function_ invoke__">jQuery</span>(<span class="string">&#x27;.content&#x27;</span>).<span class="title function_ invoke__">text</span>();  <span class="comment">//获取标签内所有文本</span></span><br><span class="line"><span class="title function_ invoke__">jQuery</span>(<span class="string">&#x27;.content&#x27;</span>).<span class="title function_ invoke__">val</span>();  <span class="comment">//获取value值</span></span><br><span class="line"><span class="title function_ invoke__">jQuery</span>(this).<span class="built_in">parent</span>().<span class="title function_ invoke__">find</span>(<span class="string">&#x27;.content&#x27;</span>).<span class="title function_ invoke__">text</span>(); <span class="comment">//在当前元素的父元素中查找content类，并获取文本值</span></span><br><span class="line"><span class="title function_ invoke__">jQuery</span>(this).<span class="title function_ invoke__">attr</span>(<span class="string">&#x27;type&#x27;</span>);  <span class="comment">//获取当前元素type属性的值</span></span><br></pre></td></tr></table></figure>
+    <title>【解决】已经添加了秘钥后还报git@github.com: Permission denied (publickey).</title>
+    <url>/2023/12/19/%E5%B7%B2%E7%BB%8F%E6%B7%BB%E5%8A%A0%E4%BA%86%E7%A7%98%E9%92%A5%E5%90%8E%E8%BF%98%E6%8A%A5git-github-com-Permission-denied-publickey/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在更新一些 nvim 依赖时发现偶尔会报：<code>git@github.com: Permission denied (publickey).</code>，但是我已经添加过 github 秘钥配置了，使用 ssh 命令<code>ssh -T git@github.com</code>测试也报同样问题。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/g_id_rsa # g_id_rsa为本机的github秘钥</span><br></pre></td></tr></table></figure>
 
-<h3 id="前端数据验证"><a href="#前端数据验证" class="headerlink" title="前端数据验证"></a>前端数据验证</h3><p>为防止前端频繁访问后台，加大服务器压力，前端需进行数据验证。</p>
-<h3 id="空值判断"><a href="#空值判断" class="headerlink" title="空值判断"></a>空值判断</h3><p>手机号、电子邮件等：使用正则表达式验证<br>提醒式验证：如“确定删除”，可以使用 confirm()等方法<br>验证失败可弹出提示或重定位界面。</p>
-<h3 id="ajax-传值"><a href="#ajax-传值" class="headerlink" title="ajax 传值"></a>ajax 传值</h3><p>前端验证成功后就可以向后台请求数据了，jQuery 给我们封装了 ajax 方法，多数操作将是 success 回调函数中完成。</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">jQuery.<span class="title function_ invoke__">ajax</span>(&#123;</span><br><span class="line">	<span class="attr">type</span>: <span class="string">&#x27;post&#x27;</span>,	//传值方式，post/get</span><br><span class="line">	<span class="attr">url</span>: <span class="string">&#x27;/gxapi/rank&#x27;</span>,	//请求地址</span><br><span class="line">	<span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>,   //传送数据格式，json是前后端常用传值数据格式</span><br><span class="line">	<span class="attr">data</span>: &#123;<span class="attr">content</span>: content, <span class="attr">type</span>: type&#125;, //要传送的数据值&#123;后端接受字段名称：前端发送字段名称&#125;,通常另两者名称相等。</span><br><span class="line">	<span class="attr">success</span>: <span class="title function_ invoke__">funtion</span> (res) &#123;</span><br><span class="line">		<span class="keyword">if</span>(res.code) &#123;</span><br><span class="line">			<span class="comment">//有数据的操作,多在此更改局部数据</span></span><br><span class="line">			...</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="comment">//请求失败，多为未登录、无数据等</span></span><br><span class="line">			...</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>注意：1、浏览器可以自动识别 json 数据，web 应用可以不用设置；2、如果涉及移动端，则必须设置 json 格式；3、跨域请求数据需设置 dataType 格式为 jsonp。</p>
-<h2 id="碎片功能"><a href="#碎片功能" class="headerlink" title="碎片功能"></a>碎片功能</h2><h3 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h3><ul>
-<li>点击某元素触发事件，如增加、删除、编辑等。</li>
-</ul>
-<p>通过模板渲染所得的页面，可以直接对 dom 元素进行操作，例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">jQuery</span>(<span class="string">&#x27;.btn&#x27;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">//点击事件后续操作</span></span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>通过动态生成得到的界面，操作 dom 元素时需要绑定元素，下面的例子中，list 类是非动态生成的元素，我们将 delete 点击事件绑定到该元素上，例：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">jQuery</span>(<span class="string">&#x27;.list&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;.delete&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">//点击事件后续操作</span></span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>其中 click 可以更改为 change、hover 等，在对列表进行操作时常用。另外还有一种方式，适用于 jQuery 版本较低的场景。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">jQuery</span>(<span class="string">&quot;.list&quot;</span>).<span class="title function_">delegate</span>(<span class="string">&quot;.delete&quot;</span>, <span class="string">&quot;click&quot;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">//点击事件后续操作</span></span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是，这两个方法的 click 位置不同。</p>
-<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><ul>
-<li>保留小数点后两位：Number(num).toFixed(2)</li>
-<li>遍历：可用于批量操作</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> jQuery.<span class="title function_">each</span>(res.<span class="property">data</span>, <span class="keyword">function</span> (<span class="params">i, item</span>) &#123;</span><br><span class="line">	<span class="comment">//批量操作、结合append()生成列表行等</span></span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>注意：当遍历 dom 元素时一定要注意在遍历前元素已经生成。</p>
-<h2 id="其他小技巧"><a href="#其他小技巧" class="headerlink" title="其他小技巧"></a>其他小技巧</h2><ul>
-<li>前端获取到数据后可以存在 display:none 的标签里，便于以后使用。</li>
-<li>要更改样式最简单的方法还是通过 css，故我们可以通过给元素添加 class 并设置 class 的值来批量更改样式。</li>
-</ul>
+<p>再使用<code>ssh -T git@github.com</code>测试，成功！</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>已经添加过秘钥但是还报错通常是本机的这个 git 仓库并没有和这个 SSH key 关联上，重新添加一下就好了。</p>
 ]]></content>
+      <categories>
+        <category>经验之谈</category>
+      </categories>
   </entry>
   <entry>
     <title>开发过程中的设计模式</title>
@@ -333,5 +309,29 @@
 <p>第一种方式，进行增加、删除、修改操作时都需进行数据库查询，获取所有人物信息，添加到 user_all 键中，查询时直接进行字符串匹配；<br>第二种方式，需要对 redis 键进行全部查询操作，不适用于键特别多的情况。</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//除掉字符串中的标点符号</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">spellReplace</span>(<span class="params"><span class="variable">$spell</span></span>) </span>&#123;</span><br><span class="line">	<span class="variable">$char</span> = <span class="string">&quot;。、！？：；﹑•＂…‘’“”〝〞∕¦‖—　〈〉﹞﹝「」‹›〖〗】【»«』『〕〔》《﹐¸﹕︰﹔！¡？¿﹖﹌﹏﹋＇´ˊˋ―﹫︳︴¯＿￣﹢﹦﹤‐­˜﹟﹩﹠﹪﹡﹨﹍﹉﹎﹊ˇ︵︶︷︸︹︿﹀︺︽︾ˉ﹁﹂﹃﹄︻︼（）# #&quot;</span>;</span><br><span class="line">	<span class="variable">$pattern</span> = <span class="keyword">array</span>(</span><br><span class="line">	    <span class="string">&quot;/[[:punct:]]/i&quot;</span>, <span class="comment">//英文标点符号</span></span><br><span class="line">	    <span class="string">&#x27;/[&#x27;</span> . <span class="variable">$char</span> . <span class="string">&#x27;]/u&#x27;</span>, <span class="comment">//中文标点符号</span></span><br><span class="line">	    <span class="string">&#x27;/[ ]&#123;2,&#125;/&#x27;</span></span><br><span class="line">	);</span><br><span class="line">	<span class="variable">$str</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="variable">$pattern</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$spell</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$str</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取拼音首字母，如yuan zi jiang =&gt;YZJ</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">spellChar</span>(<span class="params"><span class="variable">$spell</span></span>) </span>&#123;</span><br><span class="line">	<span class="variable">$new_name</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	<span class="variable">$nword</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&quot; &quot;</span>, <span class="variable">$spell</span>);</span><br><span class="line">	<span class="keyword">foreach</span> (<span class="variable">$nword</span> <span class="keyword">as</span> <span class="variable">$letter</span>) &#123;</span><br><span class="line">		<span class="variable">$new_name</span> .= <span class="variable">$letter</span>&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="title function_ invoke__">strtoupper</span>(<span class="variable">$new_name</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>被碎片化信息包围的我们...</title>
+    <url>/2023/12/08/%E8%A2%AB%E7%A2%8E%E7%89%87%E5%8C%96%E4%BF%A1%E6%81%AF%E5%8C%85%E5%9B%B4%E7%9A%84%E6%88%91%E4%BB%AC/</url>
+    <content><![CDATA[<p>2023 年，经历过数次微博、抖音的卸载安装操作后，最终我每日<code>临幸</code>的 APP 分成了两个设备群：</p>
+<ul>
+<li><p>手机：小红书、微博、王者荣耀</p>
+</li>
+<li><p>Pad：抖音</p>
+<p>我很忙，我真的很忙。每天都要给自己洗脑，从睁眼到入睡，无数的内容占据了我的时间，吃饭会看一会、去卫生间看一会，下班回家先摊着刷会抖音，不知不觉时间就从 20:00 跳到了 23:59，你问我这期间获取到了什么消息？答：阿巴阿巴阿巴…..</p>
+<p>相信有这种体验的不止我一个人，为此我们可以做些什么呢？</p>
+<ol>
+<li>找一项日常的事情，坚持一个月。比如：每天背 10 个单词、读一篇好文、锻炼 30 分钟……习惯形成之后，成就感随之而来；</li>
+<li>化碎片信息为整。每天挨个浏览的信息，按照目前大部分 APP 都有的推荐算法逻辑，大多会分为几类，对于我来说便是：摄影、萌宠、穿搭以及美食这几个大类，在结束一天的碎片化信息获取之后，我将使用思维导图的方式，把有意义的内容记录下来，太过重复的内容则使用 APP 自身的<code>不感兴趣</code>方式挪出我的推荐池，过滤电子垃圾；</li>
+<li>主动检索。碎片化信息对我思维能力、记忆能力的影响很大，多采用主动出击的方式，了解自己需要的内容，避免被动的接收信息导致大脑不断刷新内存；</li>
+<li>多接触现实生活，比如有意义有主题的社交、多参与拥抱大自然活动，从外部汲取能量。</li>
+</ol>
+<p>光阴似箭，日月如梭真是老生常谈了，现在到退休还有好几十年，希望多做一些有意义的事情吧！</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>随便写写</tag>
+      </tags>
   </entry>
 </search>
